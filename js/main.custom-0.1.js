@@ -14,16 +14,17 @@
 
 // Elements needed:
 
-// closed caption (default)
-// play
-// pause
-// track start time
-// back n seconds
-// current time/progress bar
-// track end time
-// sound
-// fullscreen
-
+// Controls:
+// on mobile stick to bottom (maybe scroll and highlite bottom offscreen up to the player? todo: figureout how to make the most out of mobile screen size)
+//  - closed caption (default)
+//  - play
+//  - pause
+//  - track start time
+//  - back n seconds
+//  - current time/progress bar
+//  - track end time
+//  - sound
+//  - fullscreen
 
 
 // additional features:
