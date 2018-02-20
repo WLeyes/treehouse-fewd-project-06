@@ -7,20 +7,40 @@
 // Main Headlines
 .headline {
   @include m(primary) {
-    @extend %headline-primary;
-    padding-left: em(10px);
-    margin-top: 0;
-    margin-bottom: em(40px, 30px);
+    @extend %headline--primary;
+    // margin-top: em(20px);
+    margin-bottom: 0;
     color: $color--primary;
     @include media-query(medium) {
-      text-align: center;
       padding-left: 0;
+      font-size: em(40px);
     }
   }
   @include m(secondary) {
-    @extend %headline-secondary;
-    color: palette(silver-chalace,light);
-    margin-top: em(80px, 24px);
-    margin-bottom: em(22px, 24px);
+    @extend %headline--secondary;
+    color: palette(silver-chalace, xx-dark);
+  }
+  @include m(footer) {
+    @extend %headline--secondary;
+    color: palette(silver-chalace, light);
+  }
+}
+
+section.grid__row{
+  @include flex(row);
+  @extend %headline--secondary;
+}
+
+// Config Cog icon
+.svg-inline--fa.fa-cog.fa-w-16{
+  color: palette(black, light);
+  @include media-query(medium){
+    position: absolute;
+    font-size: 60px;
+    top:0;
+    left:0;
+    padding: 5px;
+    border-radius: $border-radius--round;
+    border: 1px solid $color--primary;
   }
 }

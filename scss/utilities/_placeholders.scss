@@ -54,20 +54,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
 // headlines
 ///////////////////////////////////////////////////////////////////////////////////////////
-%headline-primary {
-  font-size: em(30px);
+%headline--primary {
+  text-align: center;
+  font-size: em(20px);
   font-family: $font-family--primary;
   font-weight: $font-weight--ultra-bold;
   line-height: em(30px, 30px);
 }
 
 
-%headline-secondary {
-  font-size: em(16px);
+%headline--secondary {
+  font-size: em($base__font-size);
   font-family: $font-family--secondary;
   font-weight: $font-weight--thin;
-  line-height: em(24px, 16px);
-  letter-spacing: $letter-space;
 }
 
 

@@ -13,25 +13,55 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Javascript -->
     <script src="js/main.custom-0.1.js"></script>
+    <script defer src="js/vendor/fontawesome/fontawesome-all.min.js"></script>
   </head>
+
   <body>
     <main class="container">
-      <article>
-        <header>
+      <article class="grid__column">
+
+        <header  class="grid__row">
           <h1 class="headline--primary">Connecting to the Internet</h1>
         </header>
-        <section>
-          <video controls>  <!-- todo: remove controls -->
+
+        <section class="video__player--wrapper grid__row">
+          <video width="1280" height="720" preload="metadata" crossorigin="anonymous">  <!-- todo: remove controls -->
             <source src="video/video.mp4" poster="posterimage.jpg" type="video/mp4">
             <source src="video/video.ogg" poster="posterimage.jpg" type="video/ogg">
             <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default><!-- Technically this is a caption -->
           </video>
         </section>
-        <section>
+
+        <section class="grid__column">
+          <p class="headline--secondary grid__column">
+            <span>Now that we've looked at the architecture of the internet, let's see how you might</span>
+            <span>connect your personal devices to the internet inside your house. </span>
+            <span>Well there are many ways to connect to the internet, and </span>
+            <span> most often people connect wirelessly.</span>
+          </p>
+          <p class="headline--secondary grid__column">
+            <span>Let's look at an example of how you can connect to the internet. </span>
+            <span>If you live in a city or a town, you probably have a coaxial cable for </span>
+            <span>cable Internet, or a phone line if you have DSL, running to the outside of </span>
+            <span>your house, that connects you to the Internet Service Provider, or ISP.</span>
+            <span>If you live far out in the country,  you'll more likely have</span>
+            <span>a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
+            <span>you might also use the telephone system.</span>
+          </p>
+          <p class="headline--secondary grid__column">
+            <span>Whether a wire comes straight from the ISP hookup outside your house, or </span>
+            <span>it travels over radio  waves from your roof,</span>
+            <span>the first stop a wire will make once inside your house, is at your modem.</span>
+            <span> A modem is what connects the internet  to your network at home. </span>
+            <span>A few common residential modems are DSL or</span>
+          </p>
         </section>
-        <footer>
-          <h3 class="headline--secondary">&copy; Warren Leyes 2018 || video is property of Treehouse</h3>
+
+        <footer  class="grid__row">
+          <i class="far fa-cog"></i>
+          <h3 class="headline--footer"><i class="fas fa-terminal"></i>  &copy; Warren Leyes 2018 || video is property of Treehouse</h3>
         </footer>
+
       </article>
     </main>
   </body>
