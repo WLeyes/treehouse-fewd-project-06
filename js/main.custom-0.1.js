@@ -73,7 +73,7 @@ function play(){
 
 // play time functions
 
-function playStart() {
+function playStartTime() {
   // set play start time 0
 }
 
@@ -81,7 +81,7 @@ function currentPlayPosition() {
   // get the current playback time poision
 }
 
-function playEnd() {
+function playEndTime() {
   // get the playback end time
 }
 
