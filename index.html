@@ -17,29 +17,38 @@
   </head>
 
   <body>
-    <main class="container">
-      <article class="grid__column">
+    <article>
+      <main class="container">
 
-        <header  class="grid__row">
-          <h1 class="headline--primary">Connecting to the Internet</h1>
+        <header class="grid__row">
+          <h1 class="grid__col--12 headline--primary">Connecting to the Internet</h1>
         </header>
 
-        <section class="video__player--wrapper grid__row">
-          <video controls width="1280" height="720" preload="metadata" crossorigin="anonymous">  <!-- todo: remove controls -->
+        <section class="video__player grid__row">
+          <video class="grid__col--12" width="1280" height="720" preload="metadata" crossorigin="anonymous">  <!-- todo: remove controls -->
             <source src="video/video.mp4" poster="posterimage.jpg" type="video/mp4">
             <source src="video/video.ogg" poster="posterimage.jpg" type="video/ogg">
             <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default><!-- Technically this is a caption -->
           </video>
         </section>
 
-        <section class="grid__column">
-          <p class="headline--secondary grid__column">
+        <section class="video__player--controls ">
+            <i class="fal fa-closed-captioning"></i>
+            <i class="fal fa-play"></i>
+            <input type="range" id="seek-bar" value="0">
+            <i class="fal fa-volume-up"></i>
+            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+            <i class="fal fa-expand-wide"></i>
+        </section>
+
+        <section class="">
+          <p class="headline--secondary">
             <span>Now that we've looked at the architecture of the internet, let's see how you might</span>
             <span>connect your personal devices to the internet inside your house. </span>
             <span>Well there are many ways to connect to the internet, and </span>
             <span> most often people connect wirelessly.</span>
           </p>
-          <p class="headline--secondary grid__column">
+          <p class=" headline--secondary">
             <span>Let's look at an example of how you can connect to the internet. </span>
             <span>If you live in a city or a town, you probably have a coaxial cable for </span>
             <span>cable Internet, or a phone line if you have DSL, running to the outside of </span>
@@ -48,21 +57,22 @@
             <span>a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
             <span>you might also use the telephone system.</span>
           </p>
-          <p class="headline--secondary grid__column">
-            <span>Whether a wire comes straight from the ISP hookup outside your house, or </span>
-            <span>it travels over radio  waves from your roof,</span>
-            <span>the first stop a wire will make once inside your house, is at your modem.</span>
-            <span> A modem is what connects the internet  to your network at home. </span>
-            <span>A few common residential modems are DSL or</span>
+          <p class="headline--secondary">
+            <span class="">Whether a wire comes straight from the ISP hookup outside your house, or </span>
+            <span class="">it travels over radio  waves from your roof,</span>
+            <span class="">the first stop a wire will make once inside your house, is at your modem.</span>
+            <span class=""> A modem is what connects the internet  to your network at home. </span>
+            <span class="">A few common residential modems are DSL or</span>
           </p>
         </section>
 
         <footer  class="grid__row">
-          <i class="far fa-cog"></i>
-          <h3 class="headline--footer"><i class="fas fa-terminal"></i>  &copy; Warren Leyes 2018 || video is property of Treehouse</h3>
+          <span class="grid__col--12">
+            <i class="far fa-cog"></i>
+            <h3 class="headline--footer"><i class="fas fa-terminal"></i>  &copy; Warren Leyes 2018 || video is property of Treehouse</h3>
+          </span>
         </footer>
-
-      </article>
-    </main>
+      </main>
+    </article>
   </body>
 </html>

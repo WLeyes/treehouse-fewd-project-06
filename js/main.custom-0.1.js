@@ -41,20 +41,41 @@
 //  - sound
 //  - fullscreen
 
-function video() {
+function videoPlayer() {
   controls = {
-    play: /* placeholder */,
-    pause /* placeholder */,
-    startTime: /* placeholder */,
-    skipBack: /* placeholder */,
-    currentTime: /* placeholder */,
-    endTime: /* placeholder */,
-    volume: /* placeholder */,
-    fullscreen: /* placeholder */
+    cc:          $('<i class="fal fa-closed-captioning"></i>'),
+    play:        $('<i class="fal fa-play-circle"></i>'),
+    pause:       $('<i class="fal fa-pause-circle"></i>'),
+    startTime:   $(''),
+    skipBack:    $(''),
+    currentTime: $(''),
+    endTime:     $(''),
+    volume-up:   $('<i class="fal fa-volume-up"></i>'),
+    volume-down: $('<i class="fal fa-volume-down"></i>'),
+    volume-mute: $('<i class="fal fa-volume-mute"></i>'),
+    fullscreen:  $('<i class="fal fa-expand-wide"></i>')
   };
-  player = {
-    // not sure if needed
-  }
+}
+
+// Play and pause function
+function play(){
+  // set default icon to the play status play/paused
+  // if the video is not playing and the play button is pressed, play the video
+    // else if the video is playing, puse the vido and set icon to pause
+}
+
+// Closed Caption function
+function cc() {
+  // closed caption is on by default, set cc status to on and set color to green when on
+    // if cc is on and clicked, turn cc off
+    // else  turn cc on
+}
+
+// Volume control functions
+function volume() {
+  // turn volume up
+  //turn volume down
+  // mute
 }
 
 // additional features:
