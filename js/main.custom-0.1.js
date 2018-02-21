@@ -57,6 +57,13 @@ function videoPlayer() {
   };
 }
 
+// Closed Caption function
+function cc() {
+  // closed caption is on by default, set cc status to on and set color to green when on
+    // if cc is on and clicked, turn cc off
+    // else  turn cc on
+}
+
 // Play and pause function
 function play(){
   // set default icon to the play status play/paused
@@ -64,12 +71,20 @@ function play(){
     // else if the video is playing, puse the vido and set icon to pause
 }
 
-// Closed Caption function
-function cc() {
-  // closed caption is on by default, set cc status to on and set color to green when on
-    // if cc is on and clicked, turn cc off
-    // else  turn cc on
+// play time functions
+
+function playStart {
+  // set play start time 0
 }
+
+function currentPlayPosition {
+  // get the current playback time poision
+}
+
+function playEnd {
+  // get the playback end time
+}
+
 
 // Volume control functions
 function volume() {
@@ -78,7 +93,21 @@ function volume() {
   // mute
 }
 
+function fullscreen() {
+  // check if fullscreen
+  // if not full screen, make fullscreen
+    // set notice on how to exit fullscreen
+}
+
+
 // additional features:
 
 // current time in video appends highlights on the relevant text on page
+function highlight() {
+  // if current play position is within time range, then highlight the text for that section
+}
+
 // clicking on the text skips to the appropriate time
+function jumpToPossition() {
+  // onclick of text set current time position to that section in the video and skip to that part of the video 
+}
