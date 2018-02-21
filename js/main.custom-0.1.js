@@ -73,15 +73,15 @@ function play(){
 
 // play time functions
 
-function playStart {
+function playStart() {
   // set play start time 0
 }
 
-function currentPlayPosition {
+function currentPlayPosition() {
   // get the current playback time poision
 }
 
-function playEnd {
+function playEnd() {
   // get the playback end time
 }
 
@@ -109,5 +109,5 @@ function highlight() {
 
 // clicking on the text skips to the appropriate time
 function jumpToPossition() {
-  // onclick of text set current time position to that section in the video and skip to that part of the video 
+  // onclick of text set current time position to that section in the video and skip to that part of the video
 }
