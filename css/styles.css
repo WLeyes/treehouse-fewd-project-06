@@ -534,8 +534,10 @@ section.grid__row {
     text-align: center;
     color: #58e1c1;
     background-color: #0b0b0b;
-    border-radius: 0 0 .4em .4em;
-    margin: -34px 0 16px 0;
-    z-index: 20; }
+    margin: -36px 0 16px 0;
+    z-index: 2; }
+    @media (min-width: 768px) {
+      .video__player--controls {
+        border-radius: 0 0 .4em .4em; } }
 
 /*# sourceMappingURL=styles.css.map */
