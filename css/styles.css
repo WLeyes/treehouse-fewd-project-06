@@ -529,7 +529,7 @@ section.grid__row {
     .video__player {
       border-radius: 0.4em; } }
   .video__player--controls {
-    opacity: .5;
+    opacity: .75;
     padding: 5px 0;
     text-align: center;
     color: #58e1c1;

@@ -14,8 +14,8 @@
     @include media-query(medium) {
       border-radius: $border-radius--default;
     }
-    @include m(controls) {
-      opacity: .5;
+    @include m(controls) { // todo: set width for each control and spacing
+      opacity: .75;
       padding: 5px 0;
       text-align: center;
       color: $color--primary;
