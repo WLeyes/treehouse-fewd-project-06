@@ -18,12 +18,14 @@
     @extend %headline--secondary;
     color: palette(silver-chalace, xx-dark);
     text-align: justify;
+    padding: 0 8px;
     @include media-query(medium) {
       text-align: left;
     }
   }
   @include m(footer) {
     @extend %headline--secondary;
+    text-align: center;
     color: palette(silver-chalace, light);
   }
 }

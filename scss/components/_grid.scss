@@ -7,9 +7,9 @@
 .container {
   @extend %clearfix;
   @extend %centered;
-  width: $max-width--container;
   @include flex(column);
   @include media-query(medium){
+    width: $max-width--container;
     max-width: $max-width;
     justify-content: space-between;
   }

@@ -24,15 +24,15 @@
           <h1 class="grid__col--12 headline--primary">Connecting to the Internet</h1>
         </header>
 
-        <section class="video__player grid__row">
-          <video class="grid__col--12" width="1280" height="720" preload="metadata" crossorigin="anonymous">  <!-- todo: remove controls -->
+        <section class="grid__row">
+          <video class="video__player  grid__col--12" width="1280" height="720" preload="metadata" crossorigin="anonymous">  <!-- todo: remove controls -->
             <source src="video/video.mp4" poster="posterimage.jpg" type="video/mp4">
             <source src="video/video.ogg" poster="posterimage.jpg" type="video/ogg">
             <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default><!-- Technically this is a caption -->
           </video>
         </section>
 
-        <section class="video__player--controls ">
+        <section class="video__player--controls">
             <i class="fal fa-closed-captioning"></i>
             <i class="fal fa-play"></i>
             <input type="range" id="seek-bar" value="0">
