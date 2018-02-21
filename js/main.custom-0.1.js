@@ -43,14 +43,14 @@
 
 function video() {
   controls = {
-    play:,
-    pause,
-    startTime:,
-    skipBack:,
-    currentTime:,
-    endTime:,
-    volume:,
-    fullscreen:
+    play: /* placeholder */,
+    pause /* placeholder */,
+    startTime: /* placeholder */,
+    skipBack: /* placeholder */,
+    currentTime: /* placeholder */,
+    endTime: /* placeholder */,
+    volume: /* placeholder */,
+    fullscreen: /* placeholder */
   };
   player = {
     // not sure if needed
