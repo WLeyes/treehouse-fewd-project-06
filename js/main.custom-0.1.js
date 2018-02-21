@@ -41,6 +41,21 @@
 //  - sound
 //  - fullscreen
 
+function video() {
+  controls = {
+    play:,
+    pause,
+    startTime:,
+    skipBack:,
+    currentTime:,
+    endTime:,
+    volume:,
+    fullscreen:
+  };
+  player = {
+    // not sure if needed
+  }
+}
 
 // additional features:
 
