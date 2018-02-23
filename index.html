@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
   <head>
     <!-- Meta tags -->
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.custom-0.1.js"></script>
     <script defer src="js/vendor/fontawesome/fontawesome-all.min.js"></script>
   </head>
@@ -24,17 +25,16 @@
           <h1 class="grid__col--12 headline--primary">Connecting to the Internet</h1>
         </header>
 
-        <section class="grid__row">
-          <video class="video__player  grid__col--12" width="1280" height="720" preload="metadata" crossorigin="anonymous">  <!-- todo: remove controls -->
-            <source src="video/video.mp4" poster="posterimage.jpg" type="video/mp4">
-            <source src="video/video.ogg" poster="posterimage.jpg" type="video/ogg">
-            <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default><!-- Technically this is a caption -->
+        <section class="video__player--contaner grid__row">
+          <video class="video__player" width="1280" height="720">
+            <source src="video/video.mp4" poster="./img/Team-Treehouse-Review.jpg" type="video/mp4">
+            <source src="video/video.ogg" poster="./img/Team-Treehouse-Review.jpg" type="video/ogg">
           </video>
         </section>
 
-        <section class="video__player--controls">
+        <section class="video__player__controls">
             <i class="fal fa-closed-captioning"></i>
-            <i class="fal fa-play"></i>
+            <i class="video__player__controls--play fal fa-play"></i>
             <input type="range" id="seek-bar" value="0">
             <i class="fal fa-volume-up"></i>
             <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
@@ -43,25 +43,28 @@
 
         <section class="">
           <p class="headline--secondary">
-            <span>Now that we've looked at the architecture of the internet, let's see how you might</span>
-            <span>connect your personal devices to the internet inside your house. </span>
-            <span>Well there are many ways to connect to the internet, and </span>
-            <span> most often people connect wirelessly.</span>
+            <span>Now that we've looked at the architecture of the internet,</span>
+            <span> let's see how you might connect your personal devices to the internet inside your house.</span>
+            <span>Well there are many ways to connect to the internet,</span>
+            <span>and most often people connect wirelessly.</span>
           </p>
           <p class=" headline--secondary">
             <span>Let's look at an example of how you can connect to the internet. </span>
-            <span>If you live in a city or a town, you probably have a coaxial cable for </span>
-            <span>cable Internet, or a phone line if you have DSL, running to the outside of </span>
-            <span>your house, that connects you to the Internet Service Provider, or ISP.</span>
-            <span>If you live far out in the country,  you'll more likely have</span>
-            <span>a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
-            <span>you might also use the telephone system.</span>
+            <span>If you live in a city or a town,</span>
+            <span>you probably have a coaxial cable for cable Internet,</span>
+            <span>or a phone line if you have DSL,</span>
+            <span>running to the outside of your house,</span>
+            <span>that connects you to the Internet Service Provider, or ISP.</span>
+            <span>If you live far out in the country,<span>
+            <span>you'll more likely have a dish outside your house,</span>
+            <span>connecting you wirelessly to your closest ISP,</span>
+            <span>or you might also use the telephone system.</span>
           </p>
           <p class="headline--secondary">
-            <span class="">Whether a wire comes straight from the ISP hookup outside your house, or </span>
-            <span class="">it travels over radio  waves from your roof,</span>
+            <span class="">Whether a wire comes straight from the ISP hookup outside your house,</span>
+            <span class="">or it travels over radio  waves from your roof,</span>
             <span class="">the first stop a wire will make once inside your house, is at your modem.</span>
-            <span class=""> A modem is what connects the internet  to your network at home. </span>
+            <span class="">A modem is what connects the internet  to your network at home.</span>
             <span class="">A few common residential modems are DSL or</span>
           </p>
         </section>

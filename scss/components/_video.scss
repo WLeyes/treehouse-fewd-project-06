@@ -14,16 +14,33 @@
     @include media-query(medium) {
       border-radius: $border-radius--default;
     }
-    @include m(controls) { // todo: set width for each control and spacing
+    @include e(controls) {
+      @include flex(row);
+      justify-content: space-around;
       opacity: .75;
       padding: 5px 0;
+      font-size: em(36px);
       text-align: center;
       color: $color--primary;
       background-color: palette(black);
-      margin: -36px 0 16px 0;
+      margin: -45px 0 16px 0;
       z-index: 2;
+      // controls
+      @include m(cc) {
+        // background-color: red; // test
+      }
+      @include m(play) {
+        // background-color: red; // test
+      }
+      @include m(volume) {
+        // background-color: red; // test
+      }
+      @include m(fullscreen) {
+        // background-color: red; // test
+      }
+      // Media Query
       @include media-query(medium) {
-        border-radius: 0 0 .4em .4em;
+        border-radius: 0 0 .2em .2em;
       }
     }
   }
