@@ -1,17 +1,13 @@
-const supportsVideo = !!document.createElement('video').canPlayType;
+const supportsVideo    = !!document.createElement('video').canPlayType;
+const videoContainer   = document.querySelector('.video__player--container');
+const video            = document.querySelector('.video__player');
+supportsVideo.controls = false; // todo: if html5 video is supported only add my controls if javascript is enabled
+const videoControls    = document.querySelector('.video__player--controls');
+const play             = document.querySelector('.video__player__controls--play');
+
 if (supportsVideo) {
  // alert('yes'); // test if video can play else ... no it can not
-
- let videoContainer = document.querySelector('.video__player--container');
- let video          = document.querySelector('.video__player');
- video.controls     = false;
- 
- let videoControls  = document.querySelector('.video__player--controls');
- let play           = document.querySelector('.video__player__controls--play');
  // const playClasses    = play.classList;
-
-
-
  play.addEventListener('click', function () {
   if (video.ended) {
     video.currentTime = 0;
