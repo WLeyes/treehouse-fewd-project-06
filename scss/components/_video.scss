@@ -12,18 +12,17 @@
     height: 100%;
     z-index: 1;
     @include media-query(medium) {
-      border-radius: $border-radius--default;
+      border-radius: .4em .4em 0 0;
     }
     @include e(controls) {
       @include flex(row);
       justify-content: space-around;
       opacity: .75;
       padding: 5px 0;
-      font-size: em(36px);
       text-align: center;
       color: $color--primary;
+      min-width: 320px;
       background-color: palette(black);
-      margin: -45px 0 16px 0;
       z-index: 2;
       cursor: pointer;
       // controls
@@ -41,7 +40,9 @@
       }
       // Media Query
       @include media-query(medium) {
-        border-radius: 0 0 .2em .2em;
+        border-radius: 0 0 .4em .4em;
+        font-size: em(36px);
+        // margin: -45px 0 16px 0;
       }
     }
   }

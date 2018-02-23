@@ -527,7 +527,7 @@ section.grid__row {
   z-index: 1; }
   @media (min-width: 768px) {
     .video__player {
-      border-radius: 0.4em; } }
+      border-radius: .4em .4em 0 0; } }
   .video__player__controls {
     display: flex;
     flex-direction: row;
@@ -535,15 +535,15 @@ section.grid__row {
     justify-content: space-around;
     opacity: .75;
     padding: 5px 0;
-    font-size: 2.25em;
     text-align: center;
     color: #58e1c1;
+    min-width: 320px;
     background-color: #0b0b0b;
-    margin: -45px 0 16px 0;
     z-index: 2;
     cursor: pointer; }
     @media (min-width: 768px) {
       .video__player__controls {
-        border-radius: 0 0 .2em .2em; } }
+        border-radius: 0 0 .4em .4em;
+        font-size: 2.25em; } }
 
 /*# sourceMappingURL=styles.css.map */
