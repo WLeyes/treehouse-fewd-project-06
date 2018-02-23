@@ -1,6 +1,6 @@
  window.addEventListener("load", function(event) {
   const videoContainer = document.querySelector('.video__player--container');
-  const video          = document.querySelector('.video__player'); 
+  const video          = document.querySelector('.video__player');
   video.controls       = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
 
   const videoControls  = document.querySelector('.video__player--controls');
@@ -20,14 +20,14 @@
 
 
   video.addEventListener('play', function () {
-    play.title = 'pause';
     play.classList.replace('fa-play', 'fa-pause');
+    alert('from pause state to play!'); // test
   }, false);
 
-
   video.addEventListener('pause', function () {
-    play.title = 'play';
+    this.pause();
     play.classList.replace('fa-pause', 'fa-play');
+    alert('from play state to pause!'); // test not triggering on click but is triggered on video.ended
   }, false);
 
 
