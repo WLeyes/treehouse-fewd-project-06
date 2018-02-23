@@ -21,12 +21,14 @@
 
 
   video.addEventListener('play', function () {
+    play.title = 'pause';
     play.classList.remove('fa-play');
     play.classList.add('fa-pause');
   }, false);
 
 
   video.addEventListener('pause', function () {
+    play.title = 'play';
     play.classList.remove('fa-pause');
     play.classList.add('fa-play');
   }, false);
