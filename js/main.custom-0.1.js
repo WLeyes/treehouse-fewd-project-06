@@ -1,11 +1,11 @@
 const supportsVideo = !!document.createElement('video').canPlayType;
 if (supportsVideo) {
- // alert('yes');
+ // alert('yes'); // test if video can play else ... no it can not
  const video          = document.querySelector('.video__player');
  const videoContainer = document.querySelector('.video__player--container');
  const videoControls  = document.querySelector('.video__player--controls');
- const play           =  document.querySelector('.video__controls--play');
- const playClasses    = play.classList;
+ const play           =  document.querySelector('.video__player__controls--play');
+ // const playClasses    = play.classList;
 
  play.addEventListener('click', function () {
   if (video.ended) {
@@ -37,5 +37,5 @@ video.addEventListener('ended', function () {
 }, false);
 
 } else {
-  alert('no');
+  // alert('no'); // html5 is not supported
 }
