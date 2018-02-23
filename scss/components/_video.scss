@@ -16,12 +16,12 @@
     }
     @include e(controls) {
       @include flex(row);
+      [class^='fal'] {
+
+      }
       justify-content: space-around;
       opacity: .75;
       padding: 5px 0;
-      text-align: center;
-      color: $color--primary;
-      min-width: 320px;
       background-color: palette(black);
       z-index: 2;
       cursor: pointer;
@@ -30,7 +30,11 @@
         // background-color: red; // test
       }
       @include m(play) {
-        // background-color: red; // test
+        background-color: transparent; // test
+        border: none;
+        text-align: center;
+        color: $color--primary;
+        min-width: 320px;
       }
       @include m(volume) {
         // background-color: red; // test
