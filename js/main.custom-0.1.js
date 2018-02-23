@@ -22,12 +22,13 @@
 // in MS Edge play and pause functions correctly but icon keeps same state (fa-play) likley due to the replace() i am using for now
 
   video.addEventListener('play', function () {
+    play.title = 'pause';
     play.classList.replace('fa-play', 'fa-pause');
     alert('from pause state to play!'); // test
   }, false);
 
   video.addEventListener('pause', function () {
-    this.pause();
+    play.title = 'play';
     play.classList.replace('fa-pause', 'fa-play');
     alert('from play state to pause!'); // test not triggering on click but is triggered on video.ended
   }, false);

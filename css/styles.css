@@ -540,7 +540,8 @@ section.grid__row {
     color: #58e1c1;
     background-color: #0b0b0b;
     margin: -45px 0 16px 0;
-    z-index: 2; }
+    z-index: 2;
+    cursor: pointer; }
     @media (min-width: 768px) {
       .video__player__controls {
         border-radius: 0 0 .2em .2em; } }

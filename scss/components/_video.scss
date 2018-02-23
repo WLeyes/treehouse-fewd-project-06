@@ -25,6 +25,7 @@
       background-color: palette(black);
       margin: -45px 0 16px 0;
       z-index: 2;
+      cursor: pointer;
       // controls
       @include m(cc) {
         // background-color: red; // test
