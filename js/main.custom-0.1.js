@@ -18,7 +18,8 @@
     }
   }, false);
 
-
+// half functional in chrome as it changes from pause state to play and switches icon
+// in MS Edge play and pause functions correctly but icon keeps same state (fa-play) likley due to the replace() i am using for now
   video.addEventListener('play', function () {
     play.classList.replace('fa-play', 'fa-pause');
     alert('from pause state to play!'); // test
