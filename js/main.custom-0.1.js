@@ -1,11 +1,16 @@
 const supportsVideo = !!document.createElement('video').canPlayType;
 if (supportsVideo) {
  // alert('yes'); // test if video can play else ... no it can not
- const video          = document.querySelector('.video__player');
- const videoContainer = document.querySelector('.video__player--container');
- const videoControls  = document.querySelector('.video__player--controls');
- const play           =  document.querySelector('.video__player__controls--play');
+
+ let videoContainer = document.querySelector('.video__player--container');
+ let video          = document.querySelector('.video__player');
+ video.controls     = false;
+ 
+ let videoControls  = document.querySelector('.video__player--controls');
+ let play           = document.querySelector('.video__player__controls--play');
  // const playClasses    = play.classList;
+
+
 
  play.addEventListener('click', function () {
   if (video.ended) {
@@ -19,13 +24,11 @@ if (supportsVideo) {
 }, false);
 
 video.addEventListener('play', function () {
-  play.title = 'pause';
   play.classList.remove('fa-play');
   play.classList.add('fa-pause');
 }, false);
 
 video.addEventListener('pause', function () {
-  play.title = 'play';
   play.classList.remove('fa-pause');
   play.classList.add('fa-play');
 }, false);
