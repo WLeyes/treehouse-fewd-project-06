@@ -4,7 +4,7 @@
   const videoContainer  = document.querySelector('.player--container');
   const video           = document.querySelector('.player');
   video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
-
+  video.preload         = 'none';
 // Video player controls
   const videoControls   = document.querySelector('.player__controls');
   const play            = document.querySelector('.player__controls--play');
@@ -15,6 +15,7 @@
   video.volume          = 1;
   let volumeSlider      = document.querySelector('.player__controls--volume-slider');
   volumeSlider.style.display = 'none';
+  let volumeToggle      = document.querySelector('.fa-volume-off');
 
 // Closed caption controls
 const closedCaption         = document.querySelector('.player__controls--cc');
@@ -41,8 +42,18 @@ closedCaption.addEventListener('click', function () {
         volumeSlider.style.display = 'none';
   });
 
+  // Mute
+  volume.addEventListener('dblclick', function () {
+        volume.classList.remove('fa-volume-off');
+        volume.classList.add('fa-volume-mute');
+  });
 //Fullscreen
-  let fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
+  let fullScreenEnabled = !!(document.fullscreenEnabled
+                          || document.mozFullScreenEnabled
+                          || document.msFullscreenEnabled
+                          || document.webkitSupportsFullscreen
+                          || document.webkitFullscreenEnabled
+                          || document.createElement('video').webkitRequestFullScreen);
   const fullscreen      = document.querySelector('.player__controls--fullscreen');
 
 
@@ -62,14 +73,14 @@ closedCaption.addEventListener('click', function () {
     playPauseToggle = document.querySelector('.fa-play');
     playPauseToggle.classList.remove('fa-play');
     playPauseToggle.classList.add('fa-pause');
-    play.title = 'pause';
+    play.title = 'Click to pause';
   }, false);
 
   video.addEventListener('pause', function () {
     playPauseToggle = document.querySelector('.fa-pause');
     playPauseToggle.classList.remove('fa-pause');
     playPauseToggle.classList.add('fa-play');
-    play.title = 'play';
+    play.title = 'Click to play';
   }, false);
 
 
@@ -78,6 +89,7 @@ closedCaption.addEventListener('click', function () {
     playPauseToggle = document.querySelector('.fa-pause');
     playPauseToggle.classList.remove('fa-pause');
     playPauseToggle.classList.add('fa-play');
+    play.title = 'Click to play';
   }, false);
 
 }); // EOF
