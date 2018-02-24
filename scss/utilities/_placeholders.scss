@@ -78,12 +78,36 @@
   border: none;
   text-align: center;
   color: $color--primary;
-  
-  &:hover {
-    opacity: .75;
+
+  &:hover{
+    color: $color--secondary;
   }
   &:active {
     opacity: initial;
+  }
+}
+
+%sliders {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px; /* Set a specific slider handle width */
+    height: 32px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  &::-moz-range-thumb {
+    width: 32px; /* Set a specific slider handle width */
+    height: 32px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
   }
 }
 

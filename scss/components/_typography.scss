@@ -34,18 +34,3 @@ section.grid__row{
   @include flex(row);
   @extend %headline--secondary;
 }
-
-// Config Cog icon
-.svg-inline--fa.fa-cog.fa-w-16{
-  color: palette(silver-chalace, xx-dark);
-  cursor: pointer;
-  @include media-query(medium){
-    position: absolute;
-    font-size: 60px;
-    top: 16px;
-    left: 16px;
-    padding: 5px;
-    border-radius: $border-radius--round;
-    border: 3px solid $color--primary;
-  }
-}

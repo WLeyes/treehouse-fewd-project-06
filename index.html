@@ -25,20 +25,43 @@
           <h1 class="grid__col--12 headline--primary">Connecting to the Internet</h1>
         </header>
 
-        <section class="video__player--container grid__row">
-          <video controls class="video__player" width="1280" height="720">
+        <section class="player__container grid__row">
+          <video controls class="player" width="1280" height="720">
             <source src="video/video.mp4" poster="img/Team-Treehouse-Review.jpg" type="video/mp4">
             <source src="video/video.ogg" poster="img/Team-Treehouse-Review.jpg" type="video/ogg">
           </video>
         </section>
 
-        <section class="video__player__controls">
-            <button class="video__player__controls--cc"><i class="fal fa-closed-captioning"></i></button>
-            <button class="video__player__controls--play"><i class="fal fa-play"></i></button>
-            <input type="range" id="seek-bar" value="0">
-            <button class="video__player__controls--volume"><i class="fal fa-volume-up"></i></button>
-            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-            <button class="video__player__controls--fullscreen"><i class="fal fa-expand-wide"></i></button>
+        <section class="player__controls">
+
+            <button class="player__controls--settings" type="button" name="settings">
+              <i class="fal fa-cog"></i>
+            </button>
+
+            <button class="player__controls--cc" type="button" name="cc" >
+              <i class="fal fa-closed-captioning"></i>
+            </button>
+
+            <button class="player__controls--play" type="button" name="play">
+              <i class="fal fa-play"></i>
+            </button>
+
+            <input class="player__controls--playback-possition" type="range" min="1" max="100" step="10" value="0">
+
+            <button class="player__controls--volume" type="button" name="volume">
+              <i class="fal fa-volume-up"></i>
+            </button>
+
+            <input class="player__controls--volume-slider" type="range"  min="0" max="100" step="1" value="0">
+
+            <button class="player__controls--fullscreen" type="button" name="fullscreen">
+              <i class="fal fa-expand-wide"></i>
+            </button>
+
+            <button class="player__controls--info" type="button" name="info">
+              <i class="fal fa-info-circle"></i>
+            </button>
+
         </section>
 
         <section class="">
@@ -71,10 +94,10 @@
 
         <footer  class="grid__row">
           <span class="grid__col--12">
-            <i class="far fa-cog"></i>
             <h3 class="headline--footer"><i class="fas fa-terminal"></i>  &copy; Warren Leyes 2018 || video is property of Treehouse</h3>
           </span>
         </footer>
+        
       </main>
     </article>
   </body>

@@ -6,8 +6,7 @@
 
 video::-webkit-media-controls { display:none !important;}
 
-.video{
-  @include e(player){
+.player{
     min-width: 320px;
     max-width: 100%;
     height: 100%;
@@ -24,7 +23,7 @@ video::-webkit-media-controls { display:none !important;}
       }
     }
     @include e(controls) {
-      min-width: 320px;
+      max-width: 100%;
       @include flex(row);
       justify-content: space-around;
       opacity: .75;
@@ -33,19 +32,28 @@ video::-webkit-media-controls { display:none !important;}
       z-index: 2;
       cursor: pointer;
       // controls
+      @include m(settings) {
+        @extend %buttons;
+      }
       @include m(cc) {
         @extend %buttons;
-        &:hover{
-          color: yellow;
-        }
       }
       @include m(play) {
         @extend %buttons;
       }
+      @include m(playback-possition) {
+        @extend %sliders;
+      }
       @include m(volume) {
         @extend %buttons;
       }
+      @include m(volume-slider) {
+        @extend %sliders;
+      }
       @include m(fullscreen) {
+        @extend %buttons;
+      }
+      @include m(info) {
         @extend %buttons;
       }
       // Media Query
@@ -54,5 +62,4 @@ video::-webkit-media-controls { display:none !important;}
         font-size: em(36px);
       }
     }
-  }
 }

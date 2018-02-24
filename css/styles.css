@@ -38,15 +38,44 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100; }
 
-.video__player__controls--cc, .video__player__controls--play, .video__player__controls--volume, .video__player__controls--fullscreen {
+.player__controls--settings, .player__controls--cc, .player__controls--play, .player__controls--volume, .player__controls--fullscreen, .player__controls--info {
   background-color: transparent;
   border: none;
   text-align: center;
-  color: #58e1c1; }
-  .video__player__controls--cc:hover, .video__player__controls--play:hover, .video__player__controls--volume:hover, .video__player__controls--fullscreen:hover {
-    opacity: .75; }
-  .video__player__controls--cc:active, .video__player__controls--play:active, .video__player__controls--volume:active, .video__player__controls--fullscreen:active {
+  color: #37FF8B; }
+  .player__controls--settings:hover, .player__controls--cc:hover, .player__controls--play:hover, .player__controls--volume:hover, .player__controls--fullscreen:hover, .player__controls--info:hover {
+    color: yellow; }
+  .player__controls--settings:active, .player__controls--cc:active, .player__controls--play:active, .player__controls--volume:active, .player__controls--fullscreen:active, .player__controls--info:active {
     opacity: initial; }
+
+.player__controls--playback-possition, .player__controls--volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
+  .player__controls--playback-possition::-webkit-slider-thumb, .player__controls--volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    /* Set a specific slider handle width */
+    height: 32px;
+    /* Slider handle height */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */ }
+  .player__controls--playback-possition::-moz-range-thumb, .player__controls--volume-slider::-moz-range-thumb {
+    width: 32px;
+    /* Set a specific slider handle width */
+    height: 32px;
+    /* Slider handle height */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */ }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -371,7 +400,7 @@ ul {
 */
 .headline--primary {
   margin-bottom: 0;
-  color: #58e1c1; }
+  color: #37FF8B; }
   @media (min-width: 768px) {
     .headline--primary {
       font-size: 2.5em; } }
@@ -390,19 +419,6 @@ section.grid__row {
   display: flex;
   flex-direction: row;
   justify-content: center; }
-
-.svg-inline--fa.fa-cog.fa-w-16 {
-  color: #626262;
-  cursor: pointer; }
-  @media (min-width: 768px) {
-    .svg-inline--fa.fa-cog.fa-w-16 {
-      position: absolute;
-      font-size: 60px;
-      top: 16px;
-      left: 16px;
-      padding: 5px;
-      border-radius: 50%;
-      border: 3px solid #58e1c1; } }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -533,21 +549,21 @@ section.grid__row {
 video::-webkit-media-controls {
   display: none !important; }
 
-.video__player {
+.player {
   min-width: 320px;
   max-width: 100%;
   height: 100%;
   z-index: 1; }
   @media (min-width: 768px) {
-    .video__player {
+    .player {
       border-radius: .8em .8em 0 0; } }
-  .video__player--container:fullscreen {
+  .player--container:fullscreen {
     border-radius: none;
     background-color: black;
     width: 100vw;
     height: 100vh; }
-  .video__player__controls {
-    min-width: 320px;
+  .player__controls {
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -557,10 +573,8 @@ video::-webkit-media-controls {
     background-color: #0b0b0b;
     z-index: 2;
     cursor: pointer; }
-    .video__player__controls--cc:hover {
-      color: yellow; }
     @media (min-width: 768px) {
-      .video__player__controls {
+      .player__controls {
         border-radius: 0 0 .4em .4em;
         font-size: 2.25em; } }
 
