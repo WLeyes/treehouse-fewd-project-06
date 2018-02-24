@@ -38,6 +38,16 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100; }
 
+.video__player__controls--cc, .video__player__controls--play, .video__player__controls--volume, .video__player__controls--fullscreen {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  color: #58e1c1; }
+  .video__player__controls--cc:hover, .video__player__controls--play:hover, .video__player__controls--volume:hover, .video__player__controls--fullscreen:hover {
+    opacity: .75; }
+  .video__player__controls--cc:active, .video__player__controls--play:active, .video__player__controls--volume:active, .video__player__controls--fullscreen:active {
+    opacity: initial; }
+
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // scss/base/_normalize.scss : GLOBAL RESET
@@ -520,6 +530,9 @@ section.grid__row {
 // scss/components/_video.scss : Video player styles
 ////////////////////////////////////////////////////////////////////////////////
 */
+video::-webkit-media-controls {
+  display: none !important; }
+
 .video__player {
   min-width: 320px;
   max-width: 100%;
@@ -528,7 +541,13 @@ section.grid__row {
   @media (min-width: 768px) {
     .video__player {
       border-radius: .8em .8em 0 0; } }
+  .video__player--container:fullscreen {
+    border-radius: none;
+    background-color: black;
+    width: 100vw;
+    height: 100vh; }
   .video__player__controls {
+    min-width: 320px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -538,12 +557,8 @@ section.grid__row {
     background-color: #0b0b0b;
     z-index: 2;
     cursor: pointer; }
-    .video__player__controls--play {
-      background-color: transparent;
-      border: none;
-      text-align: center;
-      color: #58e1c1;
-      min-width: 320px; }
+    .video__player__controls--cc:hover {
+      color: yellow; }
     @media (min-width: 768px) {
       .video__player__controls {
         border-radius: 0 0 .4em .4em;

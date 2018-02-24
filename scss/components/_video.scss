@@ -4,6 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 
+video::-webkit-media-controls { display:none !important;}
 
 .video{
   @include e(player){
@@ -14,11 +15,17 @@
     @include media-query(medium) {
       border-radius: .8em .8em 0 0;
     }
-    @include e(controls) {
-      @include flex(row);
-      [class^='fal'] {
-
+    @include m(container){
+      &:fullscreen {
+        border-radius: none;
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
       }
+    }
+    @include e(controls) {
+      min-width: 320px;
+      @include flex(row);
       justify-content: space-around;
       opacity: .75;
       padding: 5px 0;
@@ -27,26 +34,24 @@
       cursor: pointer;
       // controls
       @include m(cc) {
-        // background-color: red; // test
+        @extend %buttons;
+        &:hover{
+          color: yellow;
+        }
       }
       @include m(play) {
-        background-color: transparent; // test
-        border: none;
-        text-align: center;
-        color: $color--primary;
-        min-width: 320px;
+        @extend %buttons;
       }
       @include m(volume) {
-        // background-color: red; // test
+        @extend %buttons;
       }
       @include m(fullscreen) {
-        // background-color: red; // test
+        @extend %buttons;
       }
       // Media Query
       @include media-query(medium) {
         border-radius: 0 0 .4em .4em;
         font-size: em(36px);
-        // margin: -45px 0 16px 0;
       }
     }
   }

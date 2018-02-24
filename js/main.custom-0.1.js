@@ -1,13 +1,22 @@
  window.addEventListener("load", function(event) {
+
+ // Video player
   const videoContainer  = document.querySelector('.video__player--container');
   const video           = document.querySelector('.video__player');
   video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
 
+// Video player controls
   const videoControls   = document.querySelector('.video__player--controls');
   const play            = document.querySelector('.video__player__controls--play');
   let playPauseToggle   = document.querySelector('.fa-play');
-  const playClasses     = play.classList;
 
+//Fullscreen
+  let fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
+  const fullscreen      = document.querySelector('.video__player__controls--fullscreen');
+
+
+
+// play and pause button controls
    play.addEventListener('click', function () {
     if (video.ended) {
       video.currentTime = 0;
@@ -40,6 +49,5 @@
     playPauseToggle.classList.remove('fa-pause');
     playPauseToggle.classList.add('fa-play');
   }, false);
-
-
+  
 }); // EOF

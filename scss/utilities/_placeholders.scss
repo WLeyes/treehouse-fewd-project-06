@@ -74,18 +74,11 @@
 // Buttons
 //////////////////////////////////////////////////////////////////////////////
 %buttons {
-  padding: 15px;
-  border-radius: $border-radius--default;
-  color: $white;
-  text-transform: uppercase;
-  outline: 0;
-  border: 0;
-  font-weight: $font-weight--medium;
-  transition: opacity $trns-duration;
-  display: block;
+  background-color: transparent; // test
+  border: none;
   text-align: center;
-  margin-top: em(10px);
-  margin-bottom: em(10px);
+  color: $color--primary;
+  
   &:hover {
     opacity: .75;
   }
