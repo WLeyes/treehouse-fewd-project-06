@@ -15,7 +15,6 @@
   const fullscreen      = document.querySelector('.video__player__controls--fullscreen');
 
  
-
 // play and pause button controls
    play.addEventListener('click', function () {
     if (video.ended) {
