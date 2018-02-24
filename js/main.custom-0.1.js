@@ -14,7 +14,7 @@
   let fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
   const fullscreen      = document.querySelector('.video__player__controls--fullscreen');
 
-
+  
 // play and pause button controls
    play.addEventListener('click', function () {
     if (video.ended) {
