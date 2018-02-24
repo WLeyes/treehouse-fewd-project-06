@@ -29,8 +29,3 @@
     color: palette(silver-chalace, light);
   }
 }
-
-section.grid__row{
-  @include flex(row);
-  @extend %headline--secondary;
-}

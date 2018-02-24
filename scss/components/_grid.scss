@@ -16,7 +16,7 @@
 }
 
 .grid {
-  @include e(col){
+  @include e(column){
       @for $i from 1 through $grid-column-count {
         @include m(#{$i}) {
           @include media-query(medium) {

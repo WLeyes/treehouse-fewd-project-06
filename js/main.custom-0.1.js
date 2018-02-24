@@ -10,6 +10,37 @@
   const play            = document.querySelector('.player__controls--play');
   let playPauseToggle   = document.querySelector('.fa-play');
 
+// Volume controls
+  const volume          = document.querySelector('.player__controls--volume');
+  video.volume          = 1;
+  let volumeSlider      = document.querySelector('.player__controls--volume-slider');
+  volumeSlider.style.display = 'none';
+
+// Closed caption controls
+const closedCaption         = document.querySelector('.player__controls--cc');
+const closedCaptionText     = document.querySelector('.player__closed-caption');
+closedCaptionText.style.display = 'none';
+
+closedCaption.addEventListener('click', function () {
+      if(closedCaptionText.style.display == 'none') {
+        closedCaptionText.style.display = 'initial';
+        closedCaption.style.color = 'yellow';
+      } else {
+        closedCaptionText.style.display = 'none';
+        closedCaption.style.color = '';
+      }
+
+});
+
+
+  // Volume
+  volume.addEventListener('mouseover', function () {
+        volumeSlider.style.display = 'inline-block';
+  });
+  volume.addEventListener('mouseout', function () {
+        volumeSlider.style.display = 'none';
+  });
+
 //Fullscreen
   let fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
   const fullscreen      = document.querySelector('.player__controls--fullscreen');

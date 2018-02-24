@@ -98,15 +98,15 @@
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 32px; /* Set a specific slider handle width */
-    height: 32px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    width: 32px;
+    height: 32px;
+    background: $color--primary;
     cursor: pointer; /* Cursor on hover */
   }
   &::-moz-range-thumb {
     width: 32px; /* Set a specific slider handle width */
     height: 32px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    background: $color--primary;
     cursor: pointer; /* Cursor on hover */
   }
 }
