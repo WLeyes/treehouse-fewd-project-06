@@ -8,7 +8,6 @@
 .headline {
   @include m(primary) {
     @extend %headline--primary;
-    margin-bottom: 0;
     color: $color--primary;
     @include media-query(medium) {
       font-size: em(40px);

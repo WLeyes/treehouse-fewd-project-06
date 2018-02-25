@@ -117,7 +117,11 @@ document.addEventListener('fullscreenchange',      (e) => setFullscreenDataForCo
 document.addEventListener('webkitfullscreenchange', () => setFullscreenDataForControls(!!document.webkitIsFullScreen));
 document.addEventListener('mozfullscreenchange',    () => setFullscreenDataForControls(!!document.mozFullScreen));
 document.addEventListener('msfullscreenchange',     () => setFullscreenDataForControls(!!document.msFullscreenElement));
-
+if(videoControls.getAttribute('data-fullscreen') == 'true') {
+  const video  = document.querySelector('.player');
+  const videoControls   = document.querySelector('.player__controls');
+  const videoContainer  = document.querySelector('.player__container');
+}
 
 // play and pause button controls
    play.addEventListener('click', function () {

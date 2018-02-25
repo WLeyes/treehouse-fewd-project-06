@@ -395,7 +395,6 @@ ul {
 ////////////////////////////////////////////////////////////////////////////////
 */
 .headline--primary {
-  margin-bottom: 0;
   color: #37FF8B; }
   @media (min-width: 768px) {
     .headline--primary {
@@ -544,9 +543,14 @@ video::-webkit-media-controls {
 
 :-webkit-full-screen {
   background-color: transparent; }
+  :-webkit-full-screen .player, :-webkit-full-screen .player__controls {
+    border-radius: 0; }
+  :-webkit-full-screen .player {
+    margin-bottom: 2.5em; }
+  :-webkit-full-screen .player__controls--cc {
+    display: none; }
 
 .player {
-  min-width: 320px;
   max-width: 100%;
   display: flex;
   flex-direction: column;

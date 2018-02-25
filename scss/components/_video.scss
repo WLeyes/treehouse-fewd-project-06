@@ -7,9 +7,20 @@
 video::-webkit-media-controls { display:none !important;}
 :-webkit-full-screen {
   background-color: transparent;
+  .player, .player__controls {
+    border-radius: 0;
+  }
+  .player{
+    margin-bottom: em(40px);
+  }
+  .player__controls {
+    @include m(cc) {
+      display: none;
+    }
+  }
 }
+
 .player{
-    min-width: 320px;
     max-width: 100%;
   @include flex(column);
     @include media-query(medium) {
