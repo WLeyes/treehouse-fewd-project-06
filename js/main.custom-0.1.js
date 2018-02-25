@@ -1,7 +1,7 @@
  window.addEventListener("load", function(event) {
 
  // Video player
-  const videoContainer  = document.querySelector('.player--container');
+  const videoContainer  = document.querySelector('.player__container');
   const video           = document.querySelector('.player');
   video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
   video.preload         = 'none';
@@ -67,13 +67,59 @@ function unmute(){
 
 //Fullscreen || todo: add fullscreen function back in.
   const fullscreen      = document.querySelector('.player__controls--fullscreen');
+  // check if fullscreen is supported
   let fullScreenEnabled = !!(document.fullscreenEnabled
                           || document.mozFullScreenEnabled
                           || document.msFullscreenEnabled
                           || document.webkitSupportsFullscreen
                           || document.webkitFullscreenEnabled
                           || document.createElement('video').webkitRequestFullScreen);
+  if (!fullScreenEnabled) {
+     fullscreen.style.display = 'none';
+  }
 
+  // check if already fullscreen and how to handle it
+  fullscreen.addEventListener('click', (e) => handleFullscreen());
+  let handleFullscreen = () => {
+   if (isFullScreen()) {
+           if (document.exitFullscreen) document.exitFullscreen();
+      else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+      else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
+      else if (document.msExitFullscreen) document.msExitFullscreen();
+      setFullscreenData(false);
+   } else {
+           if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
+      else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
+      else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
+      else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
+      setFullscreenData(true);
+   }
+}
+
+let isFullScreen = () => {
+   return !!(document.fullScreen
+          || document.webkitIsFullScreen
+          || document.mozFullScreen
+          || document.msFullscreenElement
+          || document.fullscreenElement);
+}
+
+// Set data-fulscreen's value
+var setFullscreenData = function(state) {
+   videoContainer.setAttribute('data-fullscreen', !!state);
+}
+document.addEventListener('fullscreenchange', function(e) {
+   setFullscreenData(!!(document.fullScreen || document.fullscreenElement));
+});
+document.addEventListener('webkitfullscreenchange', function() {
+   setFullscreenData(!!document.webkitIsFullScreen);
+});
+document.addEventListener('mozfullscreenchange', function() {
+   setFullscreenData(!!document.mozFullScreen);
+});
+document.addEventListener('msfullscreenchange', function() {
+   setFullscreenData(!!document.msFullscreenElement);
+});
 
 // play and pause button controls
    play.addEventListener('click', function () {
