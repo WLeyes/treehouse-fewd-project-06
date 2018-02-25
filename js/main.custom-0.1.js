@@ -30,7 +30,6 @@ closedCaption.addEventListener('click', function () {
         closedCaptionText.style.display = 'none';
         closedCaption.style.color = '';
       }
-
 });
 
 
@@ -42,16 +41,20 @@ closedCaption.addEventListener('click', function () {
 
   // Mute
 function mute() {
+  volumeToggle = document.querySelector('.fa-volume-off');
   volumeToggle.classList.add('fa-volume-mute');
   volumeToggle.style.color = 'red';
+  video.muted = !video.muted;
   volume.setAttribute('title', 'Double-click to unmute');
 }
 
 function unmute(){
+  volumeToggle = document.querySelector('.fa-volume-mute');
   volumeToggle.classList.remove('fa-volume-mute');
   volumeToggle.classList.add('fa-volume-off');
   volumeToggle.style.color = '';
   volume.setAttribute('title', 'Volume');
+  video.muted = false;
 }
 
   volume.addEventListener('dblclick', function () {
