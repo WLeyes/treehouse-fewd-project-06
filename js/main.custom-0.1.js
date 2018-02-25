@@ -135,6 +135,17 @@ if(videoControls.getAttribute('data-fullscreen') == 'true') {
     }
   }, false);
 
+  video.addEventListener('click', function () {
+   if (video.ended) {
+     video.currentTime = 0;
+   }
+   if (video.paused) {
+     video.play();
+   } else {
+     video.pause();
+   }
+ }, false);
+
   video.addEventListener('play', function () {
     playPauseToggle = document.querySelector('.fa-play');
     playPauseToggle.classList.remove('fa-play');
