@@ -22,7 +22,7 @@
       @for $i from 1 through $grid-column-count {
         @include m(#{$i}) {
           @include media-query(medium) {
-            @include flex(column){
+            @include flex(row){
               justify-content: space-around;
               flex-grow: $i;
               max-width: (($i / $grid-column-count) * 100%);

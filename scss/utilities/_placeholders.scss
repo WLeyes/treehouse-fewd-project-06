@@ -76,9 +76,9 @@
 %buttons {
   background-color: transparent; // test
   border: none;
+  align-self: center;
   text-align: center;
   color: $color--primary;
-
   &:hover{
     color: $color--secondary;
   }

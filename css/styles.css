@@ -41,6 +41,7 @@
 .player__controls--settings, .player__controls--cc, .player__controls--play, .player__controls--volume, .player__controls--fullscreen, .player__controls--info {
   background-color: transparent;
   border: none;
+  align-self: center;
   text-align: center;
   color: #37FF8B; }
   .player__controls--settings:hover, .player__controls--cc:hover, .player__controls--play:hover, .player__controls--volume:hover, .player__controls--fullscreen:hover, .player__controls--info:hover {
@@ -428,7 +429,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--1 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 1;
@@ -436,7 +437,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--2 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 2;
@@ -444,7 +445,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--3 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 3;
@@ -452,7 +453,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--4 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 4;
@@ -460,7 +461,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--5 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 5;
@@ -468,7 +469,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--6 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 6;
@@ -476,7 +477,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--7 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 7;
@@ -484,7 +485,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--8 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 8;
@@ -492,7 +493,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--9 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 9;
@@ -500,7 +501,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--10 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 10;
@@ -508,7 +509,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--11 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 11;
@@ -516,7 +517,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--12 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 12;
@@ -546,7 +547,7 @@ video::-webkit-media-controls {
   :-webkit-full-screen .player, :-webkit-full-screen .player__controls {
     border-radius: 0; }
   :-webkit-full-screen .player {
-    margin-bottom: 2.5em; }
+    margin-bottom: 3.75em; }
   :-webkit-full-screen .player__controls--cc {
     display: none; }
 
@@ -558,14 +559,10 @@ video::-webkit-media-controls {
   @media (min-width: 768px) {
     .player {
       border-radius: .8em .8em 0 0; } }
-  .player--container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
   .player__controls {
     z-index: 2147483648;
     position: relative;
-    padding: 8px 0;
+    padding: 16px;
     display: flex;
     flex-direction: row;
     justify-content: center;
