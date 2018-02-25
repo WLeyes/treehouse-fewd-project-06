@@ -21,7 +21,7 @@
 const settings = document.querySelector('.player__controls--settings');
 const playerChoiceMenu = document.querySelector('.player__controls--settings--player-choice');
 playerChoiceMenu.style.display = 'none';
-settings.addEventListener('click', function () {
+settings.addEventListener('click', () => {
       if(playerChoiceMenu.style.display == 'none') {
         playerChoiceMenu.style.display = 'initial';
         playerChoiceMenu.style.color = 'yellow';
@@ -31,11 +31,24 @@ settings.addEventListener('click', function () {
       }
 });
 
+// settings--MediaElement.js
+const mediaElementSelected = document.querySelector('.player-choice--mediaElement');
+const mediaElementScriptTag = document.createElement('script');
+const headTag = document.getElementsByTagName('head')[0];
+
+mediaElementSelected.addEventListener('click', () => {
+  videoControls.style.display = 'none';
+  // create and append to <head> the required mediaElement script tag
+  mediaElementScriptTag.type = 'text/javascript';
+  mediaElementScriptTag.src = 'js/vendor/mediaElement/mediaelement-and-player.min.js';
+  headTag.append(mediaElementScriptTag);
+});
+
 // Closed caption controls
 const closedCaption     = document.querySelector('.player__controls--cc');
 const closedCaptionText = document.querySelector('.player__closed-caption');
 closedCaptionText.style.display = 'none';
-closedCaption.addEventListener('click', function () {
+closedCaption.addEventListener('click', () => {
       if(closedCaptionText.style.display == 'none') {
         closedCaptionText.style.display = 'initial';
         closedCaption.style.color = 'yellow';
