@@ -86,13 +86,15 @@ function unmute(){
       else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
       else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
       else if (document.msExitFullscreen) document.msExitFullscreen();
-      setFullscreenData(false);
+      setFullscreenDataForPlayer(false);
+      setFullscreenDataForControls(false);
    } else {
            if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
       else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
       else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
       else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
-      setFullscreenData(true);
+      setFullscreenDataForPlayer(true);
+      setFullscreenDataForControls(true);
    }
 }
 
@@ -105,21 +107,17 @@ let isFullScreen = () => {
 }
 
 // Set data-fulscreen's value
-var setFullscreenData = function(state) {
-   videoContainer.setAttribute('data-fullscreen', !!state);
-}
-document.addEventListener('fullscreenchange', function(e) {
-   setFullscreenData(!!(document.fullScreen || document.fullscreenElement));
-});
-document.addEventListener('webkitfullscreenchange', function() {
-   setFullscreenData(!!document.webkitIsFullScreen);
-});
-document.addEventListener('mozfullscreenchange', function() {
-   setFullscreenData(!!document.mozFullScreen);
-});
-document.addEventListener('msfullscreenchange', function() {
-   setFullscreenData(!!document.msFullscreenElement);
-});
+let setFullscreenDataForPlayer = (state) => videoContainer.setAttribute('data-fullscreen', !!state);
+document.addEventListener('fullscreenchange',      (e) => setFullscreenDataForPlayer(!!(document.fullScreen || document.fullscreenElement)));
+document.addEventListener('webkitfullscreenchange', () => setFullscreenDataForPlayer(!!document.webkitIsFullScreen));
+document.addEventListener('mozfullscreenchange',    () => setFullscreenDataForPlayer(!!document.mozFullScreen));
+document.addEventListener('msfullscreenchange',     () => setFullscreenDataForPlayer(!!document.msFullscreenElement));
+let setFullscreenDataForControls = (state) => videoControls.setAttribute('data-fullscreen', !!state);
+document.addEventListener('fullscreenchange',      (e) => setFullscreenDataForControls(!!(document.fullScreen || document.fullscreenElement)));
+document.addEventListener('webkitfullscreenchange', () => setFullscreenDataForControls(!!document.webkitIsFullScreen));
+document.addEventListener('mozfullscreenchange',    () => setFullscreenDataForControls(!!document.mozFullScreen));
+document.addEventListener('msfullscreenchange',     () => setFullscreenDataForControls(!!document.msFullscreenElement));
+
 
 // play and pause button controls
    play.addEventListener('click', function () {

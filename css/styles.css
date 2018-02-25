@@ -417,19 +417,19 @@ ul {
 ////////////////////////////////////////////////////////////////////////////////
 */
 .container {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center; }
   @media (min-width: 768px) {
     .container {
-      width: 80%;
       max-width: 1200px;
       justify-content: space-between; } }
 
 @media (min-width: 768px) {
   .grid__column--1 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 1;
@@ -437,7 +437,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 2;
@@ -445,7 +445,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--3 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 3;
@@ -453,7 +453,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--4 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 4;
@@ -461,7 +461,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--5 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 5;
@@ -469,7 +469,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--6 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 6;
@@ -477,7 +477,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--7 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 7;
@@ -485,7 +485,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--8 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 8;
@@ -493,7 +493,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--9 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 9;
@@ -501,7 +501,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--10 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 10;
@@ -509,7 +509,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--11 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 11;
@@ -517,7 +517,7 @@ ul {
 @media (min-width: 768px) {
   .grid__column--12 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-content: space-around;
     flex-grow: 12;
@@ -527,8 +527,10 @@ ul {
   @media (min-width: 768px) {
     .grid__row {
       display: flex;
-      flex-direction: row;
-      justify-content: center; } }
+      flex-direction: column;
+      justify-content: center; }
+      .grid__row:first-of-type {
+        align-items: center; } }
   .grid__row:last-of-type {
     margin-bottom: 2.5em; }
 
@@ -540,14 +542,15 @@ ul {
 video::-webkit-media-controls {
   display: none !important; }
 
+:-webkit-full-screen {
+  background-color: transparent; }
+
 .player {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   min-width: 320px;
   max-width: 100%;
-  height: 100%;
-  z-index: 1; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
   @media (min-width: 768px) {
     .player {
       border-radius: .8em .8em 0 0; } }
@@ -555,12 +558,8 @@ video::-webkit-media-controls {
     display: flex;
     flex-direction: column;
     justify-content: center; }
-    .player--container:fullscreen {
-      border-radius: none;
-      background-color: black;
-      width: 100vw;
-      height: 100vh; }
   .player__controls {
+    z-index: 2147483648;
     position: relative;
     padding: 8px 0;
     display: flex;

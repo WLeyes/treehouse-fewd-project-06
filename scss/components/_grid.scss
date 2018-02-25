@@ -7,20 +7,22 @@
 .container {
   @extend %clearfix;
   @extend %centered;
+  width: $max-width--container;
+
   @include flex(column);
   @include media-query(medium){
-    width: $max-width--container;
     max-width: $max-width;
     justify-content: space-between;
   }
 }
+
 
 .grid {
   @include e(column){
       @for $i from 1 through $grid-column-count {
         @include m(#{$i}) {
           @include media-query(medium) {
-            @include flex(row){
+            @include flex(column){
               justify-content: space-around;
               flex-grow: $i;
               max-width: (($i / $grid-column-count) * 100%);
@@ -33,7 +35,10 @@
     width: 100%;
     @extend %centered;
     @include media-query(medium) {
-      @include flex(row);
+      @include flex(column);
+      &:first-of-type{
+        align-items: center;
+      }
     }
     &:last-of-type{
       margin-bottom: em(40px);
