@@ -35,26 +35,41 @@ closedCaption.addEventListener('click', function () {
 
 
   // Volume
-  volume.addEventListener('mouseover', function () {
-        volumeSlider.style.display = 'inline-block';
-  });
+  volume.addEventListener('mouseover', () => volumeSlider.style.display = 'inline-block');
   volume.addEventListener('mouseout', function () {
         volumeSlider.style.display = 'none';
   });
 
   // Mute
+function mute() {
+  volumeToggle.classList.add('fa-volume-mute');
+  volumeToggle.style.color = 'red';
+  volume.setAttribute('title', 'Double-click to unmute');
+}
+
+function unmute(){
+  volumeToggle.classList.remove('fa-volume-mute');
+  volumeToggle.classList.add('fa-volume-off');
+  volumeToggle.style.color = '';
+  volume.setAttribute('title', 'Volume');
+}
+
   volume.addEventListener('dblclick', function () {
-        volume.classList.remove('fa-volume-off');
-        volume.classList.add('fa-volume-mute');
+    if(volume.getAttribute('title') == 'Volume') {
+      mute();
+    } else {
+      unmute();
+    }
   });
-//Fullscreen
+
+//Fullscreen || todo: add fullscreen function back in.
+  const fullscreen      = document.querySelector('.player__controls--fullscreen');
   let fullScreenEnabled = !!(document.fullscreenEnabled
                           || document.mozFullScreenEnabled
                           || document.msFullscreenEnabled
                           || document.webkitSupportsFullscreen
                           || document.webkitFullscreenEnabled
                           || document.createElement('video').webkitRequestFullScreen);
-  const fullscreen      = document.querySelector('.player__controls--fullscreen');
 
 
 // play and pause button controls
