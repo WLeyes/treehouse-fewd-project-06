@@ -531,8 +531,6 @@ ul {
       justify-content: center; }
       .grid__row:first-of-type {
         align-items: center; } }
-  .grid__row:last-of-type {
-    margin-bottom: 2.5em; }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
