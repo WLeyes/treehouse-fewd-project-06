@@ -417,10 +417,13 @@ ul {
 ////////////////////////////////////////////////////////////////////////////////
 */
 .container {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center; }
+  @media (min-width: 768px) {
+    .container {
+      width: 80%; } }
   @media (min-width: 768px) {
     .container {
       max-width: 1200px;

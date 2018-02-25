@@ -7,8 +7,10 @@
 .container {
   @extend %clearfix;
   @extend %centered;
-  width: $max-width--container;
-
+  width: 100%;
+  @include media-query(medium) {
+    width: $max-width--container;
+  }
   @include flex(column);
   @include media-query(medium){
     max-width: $max-width;
