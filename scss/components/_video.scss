@@ -66,17 +66,19 @@ video::-webkit-media-controls { display:none !important;}
   }
   .player{
     position: absolute;
-    top: 0;
+    top: -5vh;
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 97vh;
+    height: 100vh;
     right: auto;
     margin-bottom: em(60px);
   }
   .player__controls {
     position: absolute;
-    bottom: 0;
+    bottom: 28px;
+    padding: 12px 0;
+    background-color: rgba(black,1);
     @include m(cc) {
       display: none;
     }
