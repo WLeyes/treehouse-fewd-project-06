@@ -537,18 +537,6 @@ ul {
 // scss/components/_video.scss : Video player styles
 ////////////////////////////////////////////////////////////////////////////////
 */
-video::-webkit-media-controls {
-  display: none !important; }
-
-:-webkit-full-screen {
-  background-color: transparent; }
-  :-webkit-full-screen .player, :-webkit-full-screen .player__controls {
-    border-radius: 0; }
-  :-webkit-full-screen .player {
-    margin-bottom: 3.75em; }
-  :-webkit-full-screen .player__controls--cc {
-    display: none; }
-
 .player {
   max-width: 100%;
   display: flex;
@@ -582,5 +570,25 @@ video::-webkit-media-controls {
       .player__controls {
         border-radius: 0 0 .4em .4em;
         font-size: 2.25em; } }
+
+video::-webkit-media-controls {
+  display: none !important; }
+
+:-webkit-full-screen .player, :-webkit-full-screen .player__controls {
+  border-radius: 0; }
+:-webkit-full-screen .player {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 97vh;
+  right: auto;
+  margin-bottom: 3.75em; }
+:-webkit-full-screen .player__controls {
+  position: absolute;
+  bottom: 0; }
+  :-webkit-full-screen .player__controls--cc {
+    display: none; }
 
 /*# sourceMappingURL=styles.css.map */
