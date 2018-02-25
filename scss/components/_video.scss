@@ -24,6 +24,26 @@
       // controls
       @include m(settings) {
         @extend %buttons;
+        @include m(player-choice) {
+          display: none;
+          position: absolute;
+          top: em(-75px);
+          left: em(5px);
+          text-align: left;
+          background-color: palette(black);
+          border-radius: $border-radius--default;
+          padding: em(10px);
+          list-style: none;
+          a {
+            color: white;
+            text-decoration: none;
+            &:hover{
+              color: yellow;
+            }
+          }
+          font-size: initial;
+          z-index: 2;
+        }
       }
       @include m(cc) {
         @extend %buttons;
@@ -41,8 +61,9 @@
       @include m(volume-slider) {
         @extend %sliders;
         position: absolute;
-        top: -75px;
-        z-index: 2;
+        top: em(-25px);
+        z-index: 1;
+        border: 3px 3px 0 3px solid palette(black);
         transform: rotate(-90deg);
       }
       @include m(fullscreen) {
@@ -58,7 +79,7 @@
       }
     }
 }
-// FullScreen
+// Settings when Fullscreen
 video::-webkit-media-controls { display:none !important;}
 :-webkit-full-screen {
   .player, .player__controls {

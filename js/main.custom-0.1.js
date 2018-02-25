@@ -17,11 +17,24 @@
   volumeSlider.style.display = 'none';
   let volumeToggle      = document.querySelector('.fa-volume-off');
 
-// Closed caption controls
-const closedCaption         = document.querySelector('.player__controls--cc');
-const closedCaptionText     = document.querySelector('.player__closed-caption');
-closedCaptionText.style.display = 'none';
+// settings
+const settings = document.querySelector('.player__controls--settings');
+const playerChoiceMenu = document.querySelector('.player__controls--settings--player-choice');
+playerChoiceMenu.style.display = 'none';
+settings.addEventListener('click', function () {
+      if(playerChoiceMenu.style.display == 'none') {
+        playerChoiceMenu.style.display = 'initial';
+        playerChoiceMenu.style.color = 'yellow';
+      } else {
+        playerChoiceMenu.style.display = 'none';
+        playerChoiceMenu.style.color = '';
+      }
+});
 
+// Closed caption controls
+const closedCaption     = document.querySelector('.player__controls--cc');
+const closedCaptionText = document.querySelector('.player__closed-caption');
+closedCaptionText.style.display = 'none';
 closedCaption.addEventListener('click', function () {
       if(closedCaptionText.style.display == 'none') {
         closedCaptionText.style.display = 'initial';
@@ -34,12 +47,12 @@ closedCaption.addEventListener('click', function () {
 
 
   // Volume
-  volume.addEventListener('mouseover', () => volumeSlider.style.display = 'inline-block');
+  volume.addEventListener('mouseover', () => volumeSlider.style.display = 'block');
   volume.addEventListener('mouseout', function () {
         volumeSlider.style.display = 'none';
   });
 
-  // Mute
+  // Mute/ un-mute
 function mute() {
   volumeToggle = document.querySelector('.fa-volume-off');
   volumeToggle.classList.add('fa-volume-mute');
@@ -65,7 +78,7 @@ function unmute(){
     }
   });
 
-//Fullscreen || todo: add fullscreen function back in.
+// Check if you can use fullscreen
   const fullscreen      = document.querySelector('.player__controls--fullscreen');
   // check if fullscreen is supported
   let fullScreenEnabled = !!(document.fullscreenEnabled
@@ -124,6 +137,8 @@ if(videoControls.getAttribute('data-fullscreen') == 'true') {
 }
 
 // play and pause button controls
+
+// If you click on video
    play.addEventListener('click', function () {
     if (video.ended) {
       video.currentTime = 0;
@@ -135,6 +150,7 @@ if(videoControls.getAttribute('data-fullscreen') == 'true') {
     }
   }, false);
 
+// If you click on play/pause button
   video.addEventListener('click', function () {
    if (video.ended) {
      video.currentTime = 0;

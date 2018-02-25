@@ -560,14 +560,32 @@ ul {
     background-color: #0b0b0b;
     z-index: 2;
     cursor: pointer; }
+    .player__controls--settings--player-choice {
+      display: none;
+      position: absolute;
+      top: -4.6875em;
+      left: 0.3125em;
+      text-align: left;
+      background-color: #0b0b0b;
+      border-radius: 0.4em;
+      padding: 0.625em;
+      list-style: none;
+      font-size: initial;
+      z-index: 2; }
+      .player__controls--settings--player-choice a {
+        color: white;
+        text-decoration: none; }
+        .player__controls--settings--player-choice a:hover {
+          color: yellow; }
     .player__controls--volume {
       display: flex;
       flex-direction: row;
       justify-content: center; }
     .player__controls--volume-slider {
       position: absolute;
-      top: -75px;
-      z-index: 2;
+      top: -1.5625em;
+      z-index: 1;
+      border: 3px 3px 0 3px solid #0b0b0b;
       transform: rotate(-90deg); }
     @media (min-width: 768px) {
       .player__controls {
