@@ -85,10 +85,10 @@
 // Settings when Fullscreen
 video::-webkit-media-controls { display:none !important;}
 :-webkit-full-screen {
-  .player, .player__controls {
+  .player, .player__controls, .mejs__player {
     border-radius: 0;
   }
-  .player{
+  .player {
     position: absolute;
     top: auto;
     bottom: auto;

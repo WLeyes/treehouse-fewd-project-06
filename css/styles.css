@@ -595,7 +595,7 @@ ul {
 video::-webkit-media-controls {
   display: none !important; }
 
-:-webkit-full-screen .player, :-webkit-full-screen .player__controls {
+:-webkit-full-screen .player, :-webkit-full-screen .player__controls, :-webkit-full-screen .mejs__player {
   border-radius: 0; }
 :-webkit-full-screen .player {
   position: absolute;

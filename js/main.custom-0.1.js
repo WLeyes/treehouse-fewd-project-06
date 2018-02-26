@@ -228,7 +228,7 @@ function volume() {
 
 // settings--MediaElement.js
 function mediaElement(){
-  const play            = document.querySelector('.player__controls--play');
+  const play = document.querySelector('.player__controls--play');
   const mediaElementSelected  = document.querySelector('.player-choice--mediaElement');
   const videoControls   = document.querySelector('.player__controls');
   mediaElementSelected.addEventListener('click', () => {
@@ -253,6 +253,10 @@ function mediaElement(){
     // Add required class to the video element
     const player = document.querySelector('.player');
     player.classList.add('mejs__player');
+    player.classList.remove('player');
+    const mejsPlayer = document.querySelector('.mejs__player');
+    mejsPlayer.style.width = '100%';
+    mejsPlayer.style.height = '100%';
 
     // Display body closedCaptionText
     const closedCaptionText = document.querySelector('.player__closed-caption');
