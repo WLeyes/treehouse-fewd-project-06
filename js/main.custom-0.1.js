@@ -233,12 +233,22 @@ function mediaElement(){
   const videoControls   = document.querySelector('.player__controls');
   mediaElementSelected.addEventListener('click', () => {
     const headTag               = document.getElementsByTagName('head')[0];
-    const mediaElementScriptTag = document.createElement('script');
+    const mediaElementJavascriptTag = document.createElement('script');
     videoControls.style.display = 'none';
-    // create and append to <head> the required mediaElement script tag
-    mediaElementScriptTag.type = 'text/javascript';
-    mediaElementScriptTag.src = 'js/vendor/mediaElement/mediaelement-and-player.min.js';
-    headTag.append(mediaElementScriptTag);
+    // create and append to <head> the required mediaElement js script
+    mediaElementJavascriptTag.type = 'text/javascript';
+    mediaElementJavascriptTag.src = 'js/vendor/mediaElement/mediaelement-and-player.min.js';
+    headTag.append(mediaElementJavascriptTag);
+    // create and append to <head> the required mediaElement css script
+    mediaElementCSSTag = document.createElement('link');
+    mediaElementCSSTag.rel = 'stylesheet';
+    mediaElementCSSTag.href = 'css/vendor/mediaElement/mediaelementplayer.css';
+    headTag.append(mediaElementCSSTag);
+    // create and append to <head>  mediaElement css override script
+    mediaElementCSSTag = document.createElement('link');
+    mediaElementCSSTag.rel = 'stylesheet';
+    mediaElementCSSTag.href = 'css/vendor/mediaElement/mediaElementOverride.css';
+    headTag.append(mediaElementCSSTag);
 
     // create new settings cog and append to DOM
     const articleElement    = document.getElementsByTagName('article')[0];

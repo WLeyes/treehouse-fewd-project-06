@@ -1,0 +1,4 @@
+/*  used to override file locations required by mediaElement*/
+.mejs__overlay-button, .mejs__overlay-loading-bg-img, .mejs__button > button {
+	background-image: url("/img/vendor/mediaElement/mejs-controls.svg");
+}
