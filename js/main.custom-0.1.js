@@ -1,4 +1,4 @@
-window.addEventListener("load", function(event) {
+window.addEventListener("load", (event) => {
   const video           = document.querySelector('.player');
   video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
   video.preload         = 'none';
@@ -94,7 +94,7 @@ function playPause() {
   video.preload         = 'none';
   // play and pause button controls
   // If you click on video
-     play.addEventListener('click', function () {
+     play.addEventListener('click', () => {
       if (video.ended) {
         video.currentTime = 0;
       }
@@ -106,7 +106,7 @@ function playPause() {
     }, false);
 
   // If you click on play/pause button
-    video.addEventListener('click', function () {
+    video.addEventListener('click', () => {
      if (video.ended) {
        video.currentTime = 0;
      }
@@ -117,14 +117,14 @@ function playPause() {
      }
    }, false);
 
-    video.addEventListener('play', function () {
+    video.addEventListener('play', () => {
       playPauseToggle = document.querySelector('.fa-play');
       playPauseToggle.classList.remove('fa-play');
       playPauseToggle.classList.add('fa-pause');
       play.title = 'Click to pause';
     }, false);
 
-    video.addEventListener('pause', function () {
+    video.addEventListener('pause', () => {
       playPauseToggle = document.querySelector('.fa-pause');
       playPauseToggle.classList.remove('fa-pause');
       playPauseToggle.classList.add('fa-play');
@@ -132,7 +132,7 @@ function playPause() {
     }, false);
 
 
-    video.addEventListener('ended', function () {
+    video.addEventListener('ended', () => {
       this.pause();
       playPauseToggle = document.querySelector('.fa-pause');
       playPauseToggle.classList.remove('fa-pause');
@@ -187,18 +187,17 @@ function closedCaption() {
 
 // Volume controls
 function volume() {
-  const video           = document.querySelector('.player');
-  const volume          = document.querySelector('.player__controls--volume');
-  video.volume          = 1;
-  let volumeSlider      = document.querySelector('.player__controls--volume-slider');
+  const video      = document.querySelector('.player');
+  const volume     = document.querySelector('.player__controls--volume');
+  video.volume     = 1;
+  let volumeSlider = document.querySelector('.player__controls--volume-slider');
   volumeSlider.style.display = 'none';
-  let volumeToggle      = document.querySelector('.fa-volume-off');
+  let volumeToggle = document.querySelector('.fa-volume-off');
 
     // Volume
     volume.addEventListener('mouseover', () => volumeSlider.style.display = 'block');
-    volume.addEventListener('mouseout', function () {
-    volumeSlider.style.display = 'none';
-  });
+    volume.addEventListener('mouseout', () => volumeSlider.style.display = 'none');
+
   // Mute / un-mute
   function mute() {
     volumeToggle = document.querySelector('.fa-volume-off');
@@ -216,7 +215,7 @@ function volume() {
     video.muted = false;
   }
 
-  volume.addEventListener('dblclick', function () {
+  volume.addEventListener('dblclick', () => {
     if(volume.getAttribute('title') == 'Volume') {
       mute();
     } else {
@@ -226,24 +225,31 @@ function volume() {
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
 // settings--MediaElement.js
+////////////////////////////////////////////////////////////////////////////////
+
 function mediaElement(){
   const play = document.querySelector('.player__controls--play');
   const mediaElementSelected  = document.querySelector('.player-choice--mediaElement');
   const videoControls   = document.querySelector('.player__controls');
+
   mediaElementSelected.addEventListener('click', () => {
-    const headTag               = document.getElementsByTagName('head')[0];
+    const headTag                   = document.getElementsByTagName('head')[0];
     const mediaElementJavascriptTag = document.createElement('script');
     videoControls.style.display = 'none';
+
     // create and append to <head> the required mediaElement js script
     mediaElementJavascriptTag.type = 'text/javascript';
     mediaElementJavascriptTag.src = 'js/vendor/mediaElement/mediaelement-and-player.min.js';
     headTag.append(mediaElementJavascriptTag);
+
     // create and append to <head> the required mediaElement css script
     mediaElementCSSTag = document.createElement('link');
     mediaElementCSSTag.rel = 'stylesheet';
     mediaElementCSSTag.href = 'css/vendor/mediaElement/mediaelementplayer.css';
     headTag.append(mediaElementCSSTag);
+
     // create and append to <head>  mediaElement css override script
     mediaElementCSSTag = document.createElement('link');
     mediaElementCSSTag.rel = 'stylesheet';
@@ -263,13 +269,10 @@ function mediaElement(){
     closedCaptionText.style.display = 'initial';
 
     // create new settings cog and append to DOM
-    const articleElement    = document.getElementsByTagName('article')[0];
-
-    const sectionElementTag = document.createElement('section');
-
-    const buttonElementTag  = document.createElement('button');
+    const articleElement       = document.getElementsByTagName('article')[0];
+    const sectionElementTag    = document.createElement('section');
+    const buttonElementTag     = document.createElement('button');
     buttonElementTag.className = 'player__controls--settings';
-
     const cogIconTag = document.createElement('i');
     cogIconTag.className = 'fal fa-cog';
 
