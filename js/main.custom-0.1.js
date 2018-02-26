@@ -250,6 +250,10 @@ function mediaElement(){
     mediaElementCSSTag.href = 'css/vendor/mediaElement/mediaElementOverride.css';
     headTag.append(mediaElementCSSTag);
 
+    // Add required class to the video element
+    const player = document.querySelector('.player');
+    player.classList.add('mejs__player');
+
     // create new settings cog and append to DOM
     const articleElement    = document.getElementsByTagName('article')[0];
 
@@ -258,7 +262,7 @@ function mediaElement(){
     const buttonElementTag  = document.createElement('button');
     buttonElementTag.className = 'player__controls--settings';
 
-    const cogIconTag        = document.createElement('i');
+    const cogIconTag = document.createElement('i');
     cogIconTag.className = 'fal fa-cog';
 
     articleElement.append(sectionElementTag);
