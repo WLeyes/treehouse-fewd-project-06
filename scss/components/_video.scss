@@ -79,6 +79,9 @@
       }
     }
 }
+
+
+
 // Settings when Fullscreen
 video::-webkit-media-controls { display:none !important;}
 :-webkit-full-screen {
@@ -87,7 +90,8 @@ video::-webkit-media-controls { display:none !important;}
   }
   .player{
     position: absolute;
-    top: -5vh;
+    top: auto;
+    bottom: auto;
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -96,10 +100,22 @@ video::-webkit-media-controls { display:none !important;}
     margin-bottom: em(60px);
   }
   .player__controls {
+    padding: 7px 0;
+    margin: 0;
     position: absolute;
-    bottom: 28px;
-    padding: 12px 0;
-    background-color: rgba(black,1);
+    bottom: 0;
+    background-color: black;
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    &:hover{
+      zoom: 1;
+      filter: alpha(opacity=100);
+      opacity: 1;
+    }
     @include m(cc) {
       display: none;
     }

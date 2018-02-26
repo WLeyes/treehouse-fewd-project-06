@@ -254,6 +254,10 @@ function mediaElement(){
     const player = document.querySelector('.player');
     player.classList.add('mejs__player');
 
+    // Display body closedCaptionText
+    const closedCaptionText = document.querySelector('.player__closed-caption');
+    closedCaptionText.style.display = 'initial';
+
     // create new settings cog and append to DOM
     const articleElement    = document.getElementsByTagName('article')[0];
 
