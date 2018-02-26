@@ -20,6 +20,29 @@ function fullscreen() {
     // check if fullscreen is supported
     fullscreenEnabled();
     handleFullscreen();
+    // check if already fullscreen and how to handle it
+    function handleFullscreen() {
+      fullscreen.addEventListener('click', (e) => handleFullscreen());
+        let handleFullscreen = () => {
+         if (isFullScreen()) {
+                 if (document.exitFullscreen) document.exitFullscreen();
+            else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+            else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
+            else if (document.msExitFullscreen) document.msExitFullscreen();
+            setFullscreenDataForPlayer(false);
+            setFullscreenDataForControls(false);
+         } else {
+                 if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
+            else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
+            else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
+            else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
+            setFullscreenDataForPlayer(true);
+            setFullscreenDataForControls(true);
+         }
+      }
+    }
+
+
 
   let isFullScreen = () => {
      return !!(document.fullScreen
@@ -44,28 +67,6 @@ function fullscreen() {
     const video  = document.querySelector('.player');
     const videoControls   = document.querySelector('.player__controls');
     const videoContainer  = document.querySelector('.player__container');
-  }
-}
-
-// check if already fullscreen and how to handle it
-function handleFullscreen() {
-  fullscreen.addEventListener('click', (e) => handleFullscreen());
-    let handleFullscreen = () => {
-     if (isFullScreen()) {
-             if (document.exitFullscreen) document.exitFullscreen();
-        else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-        else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
-        else if (document.msExitFullscreen) document.msExitFullscreen();
-        setFullscreenDataForPlayer(false);
-        setFullscreenDataForControls(false);
-     } else {
-             if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
-        else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
-        else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
-        else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
-        setFullscreenDataForPlayer(true);
-        setFullscreenDataForControls(true);
-     }
   }
 }
 
