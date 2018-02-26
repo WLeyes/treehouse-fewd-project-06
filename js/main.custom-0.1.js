@@ -12,6 +12,11 @@ window.addEventListener("load", function(event) {
   volume();
 }); // end window.load
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Fullscreen
+////////////////////////////////////////////////////////////////////////////////
 function fullscreen() {
   // Check if you can use fullscreen
     const fullscreen      = document.querySelector('.player__controls--fullscreen');
@@ -19,31 +24,26 @@ function fullscreen() {
     const videoContainer  = document.querySelector('.player__container');
     // check if fullscreen is supported
     fullscreenEnabled();
-    handleFullscreen();
     // check if already fullscreen and how to handle it
-    function handleFullscreen() {
-      fullscreen.addEventListener('click', (e) => handleFullscreen());
-        let handleFullscreen = () => {
-         if (isFullScreen()) {
-                 if (document.exitFullscreen) document.exitFullscreen();
-            else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-            else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
-            else if (document.msExitFullscreen) document.msExitFullscreen();
-            setFullscreenDataForPlayer(false);
-            setFullscreenDataForControls(false);
-         } else {
-                 if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
-            else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
-            else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
-            else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
-            setFullscreenDataForPlayer(true);
-            setFullscreenDataForControls(true);
-         }
-      }
-    }
-
-
-
+    fullscreen.addEventListener('click', (e) => handleFullscreen());
+    let handleFullscreen = () => {
+     if (isFullScreen()) {
+             if (document.exitFullscreen) document.exitFullscreen();
+        else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+        else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
+        else if (document.msExitFullscreen) document.msExitFullscreen();
+        setFullscreenDataForPlayer(false);
+        setFullscreenDataForControls(false);
+     } else {
+             if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
+        else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
+        else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
+        else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
+        setFullscreenDataForPlayer(true);
+        setFullscreenDataForControls(true);
+     }
+  }
+  // Check if fullscreen is already enabled
   let isFullScreen = () => {
      return !!(document.fullScreen
             || document.webkitIsFullScreen
@@ -82,10 +82,9 @@ function fullscreenEnabled(){
   }
 }
 
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////
+// controls
+////////////////////////////////////////////////////////////////////////////////
 
 function playPause() {
   const videoControls   = document.querySelector('.player__controls');
@@ -186,23 +185,21 @@ function closedCaption() {
   });
 }
 
-
+// Volume controls
 function volume() {
-  // Volume controls
-    const video           = document.querySelector('.player');
-    const volume          = document.querySelector('.player__controls--volume');
-    video.volume          = 1;
-    let volumeSlider      = document.querySelector('.player__controls--volume-slider');
-    volumeSlider.style.display = 'none';
-    let volumeToggle      = document.querySelector('.fa-volume-off');
+  const video           = document.querySelector('.player');
+  const volume          = document.querySelector('.player__controls--volume');
+  video.volume          = 1;
+  let volumeSlider      = document.querySelector('.player__controls--volume-slider');
+  volumeSlider.style.display = 'none';
+  let volumeToggle      = document.querySelector('.fa-volume-off');
 
     // Volume
     volume.addEventListener('mouseover', () => volumeSlider.style.display = 'block');
     volume.addEventListener('mouseout', function () {
-          volumeSlider.style.display = 'none';
-    });
-
-    // Mute/ un-mute
+    volumeSlider.style.display = 'none';
+  });
+  // Mute / un-mute
   function mute() {
     volumeToggle = document.querySelector('.fa-volume-off');
     volumeToggle.classList.add('fa-volume-mute');
@@ -210,7 +207,6 @@ function volume() {
     video.muted = !video.muted;
     volume.setAttribute('title', 'Double-click to unmute');
   }
-
   function unmute(){
     volumeToggle = document.querySelector('.fa-volume-mute');
     volumeToggle.classList.remove('fa-volume-mute');
@@ -220,13 +216,13 @@ function volume() {
     video.muted = false;
   }
 
-    volume.addEventListener('dblclick', function () {
-      if(volume.getAttribute('title') == 'Volume') {
-        mute();
-      } else {
-        unmute();
-      }
-    });
+  volume.addEventListener('dblclick', function () {
+    if(volume.getAttribute('title') == 'Volume') {
+      mute();
+    } else {
+      unmute();
+    }
+  });
 }
 
 
