@@ -6,19 +6,33 @@ window.addEventListener("load", (event) => {
   fullscreen();
   playPause();
   settings();
-
+  customControls();
   html5Controls();
   mediaElement();
   closedCaption();
   volume();
+  // work out how to detect iOS
   const isIOS = (navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1)
   const videoControls   = document.querySelector('.player__controls');
-  if(isIOS) { /// working on this section
     videoControls.style.display = 'none';
-    alert('iOS');
-  } else {
-    customControls();
-  }
+
+    var standalone = window.navigator.standalone,
+        userAgent = window.navigator.userAgent.toLowerCase(),
+        safari = /safari/.test( userAgent ),
+        ios = /iphone|ipod|ipad/.test( userAgent );
+
+    if( ios ) {
+        if ( !standalone && safari ) {
+            alert('browser');
+        } else if ( standalone && !safari ) {
+            alert('standalone');
+        } else if ( !standalone && !safari ) {
+            alert('uiwebview');
+        };
+    } else {
+        alert('not iOS');
+    };
+
 
 }); // end window.load
 
@@ -236,8 +250,6 @@ function customControls(){
 
   });
 }
-
-
 
 // settings cog icon on custom controls
 function settings() {
