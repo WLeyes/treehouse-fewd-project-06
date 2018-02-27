@@ -28,3 +28,10 @@
     color: palette(silver-chalace, light);
   }
 }
+
+.player__controls--settings--player-choice {
+  font-family: $font-family--secondary;
+  li{
+    padding: 5px 5px;
+  }
+}

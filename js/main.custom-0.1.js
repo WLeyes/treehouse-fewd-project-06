@@ -1,12 +1,13 @@
 window.addEventListener("load", (event) => {
   const video           = document.querySelector('.player');
-  video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
+  // video.controls        = false;
   video.preload         = 'none';
   let playPauseToggle   = document.querySelector('.fa-play');
   fullscreen();
   playPause();
   settings();
   customControls();
+  html5Controls();
   mediaElement();
   closedCaption();
   volume();
@@ -142,32 +143,6 @@ function playPause() {
 }
 
 
-// settings--custom-controls
-function customControls(){
-  const customSelected = document.querySelector('.player-choice--custom');
-  customSelected.addEventListener('click', () => {
-    if(videoControls.style.display == 'none') {
-      videoControls.style.display = 'initial';
-    }
-  });
-}
-
-// settings
-function settings() {
-  const settings = document.querySelector('.player__controls--settings');
-  const playerChoiceMenu = document.querySelector('.player__controls--settings--player-choice');
-  playerChoiceMenu.style.display = 'none';
-  settings.addEventListener('click', () => {
-        if(playerChoiceMenu.style.display == 'none') {
-          playerChoiceMenu.style.display = 'initial';
-          playerChoiceMenu.style.color = 'yellow';
-        } else {
-          playerChoiceMenu.style.display = 'none';
-          playerChoiceMenu.style.color = '';
-        }
-  });
-}
-
 
 // Closed caption controls
 function closedCaption() {
@@ -225,6 +200,54 @@ function volume() {
 }
 
 
+
+function html5Controls() {
+  const html5Selected = document.querySelector('.player-choice--defaultHTML5');
+  const videoControls         = document.querySelector('.player__controls');
+    html5Selected.addEventListener('click', () => {
+      const video           = document.querySelector('.player');
+      // Hide custom controls
+      videoControls.style.display = 'none';
+      // Enable html5 defaul controls
+      // video.addAttribute('controls');
+      video.controls       = true;
+  });
+}
+
+
+
+// settings--custom-controls
+function customControls(){
+  const customSelected = document.querySelector('.player-choice--custom');
+  customSelected.addEventListener('click', () => {
+    if(videoControls.style.display == 'none') {
+      videoControls.style.display = 'initial';
+    }
+  });
+}
+
+
+
+// settings cog icon on custom controls
+function settings() {
+  const settings = document.querySelector('.player__controls--settings');
+  const playerChoiceMenu = document.querySelector('.player__controls--settings--player-choice');
+  playerChoiceMenu.style.display = 'none';
+  settings.addEventListener('click', () => {
+        if(playerChoiceMenu.style.display == 'none') {
+          playerChoiceMenu.style.display = 'initial';
+          playerChoiceMenu.style.color = 'yellow';
+          settings.style.color = 'yellow';
+        } else {
+          playerChoiceMenu.style.display = 'none';
+          playerChoiceMenu.style.color = '';
+          settings.style.color = '';
+        }
+  });
+}
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // settings--MediaElement.js
 ////////////////////////////////////////////////////////////////////////////////
@@ -232,7 +255,7 @@ function volume() {
 function mediaElement(){
   const play = document.querySelector('.player__controls--play');
   const mediaElementSelected  = document.querySelector('.player-choice--mediaElement');
-  const videoControls   = document.querySelector('.player__controls');
+  const videoControls         = document.querySelector('.player__controls');
 
   mediaElementSelected.addEventListener('click', () => {
     const headTag                   = document.getElementsByTagName('head')[0];
@@ -241,18 +264,18 @@ function mediaElement(){
 
     // create and append to <head> the required mediaElement js script
     mediaElementJavascriptTag.type = 'text/javascript';
-    mediaElementJavascriptTag.src = 'js/vendor/mediaElement/mediaelement-and-player.min.js';
+    mediaElementJavascriptTag.src  = 'js/vendor/mediaElement/mediaelement-and-player.min.js';
     headTag.append(mediaElementJavascriptTag);
 
     // create and append to <head> the required mediaElement css script
     mediaElementCSSTag = document.createElement('link');
-    mediaElementCSSTag.rel = 'stylesheet';
+    mediaElementCSSTag.rel  = 'stylesheet';
     mediaElementCSSTag.href = 'css/vendor/mediaElement/mediaelementplayer.css';
     headTag.append(mediaElementCSSTag);
 
     // create and append to <head>  mediaElement css override script
     mediaElementCSSTag = document.createElement('link');
-    mediaElementCSSTag.rel = 'stylesheet';
+    mediaElementCSSTag.rel  = 'stylesheet';
     mediaElementCSSTag.href = 'css/vendor/mediaElement/mediaElementOverride.css';
     headTag.append(mediaElementCSSTag);
 
@@ -261,7 +284,7 @@ function mediaElement(){
     player.classList.add('mejs__player');
     player.classList.remove('player');
     const mejsPlayer = document.querySelector('.mejs__player');
-    mejsPlayer.style.width = '100%';
+    mejsPlayer.style.width  = '100%';
     mejsPlayer.style.height = '100%';
 
     // Display body closedCaptionText

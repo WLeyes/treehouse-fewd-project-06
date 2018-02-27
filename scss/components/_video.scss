@@ -25,9 +25,10 @@
       @include m(settings) {
         @extend %buttons;
         @include m(player-choice) {
+          font-family: $font-family--secondary;
           display: none;
           position: absolute;
-          top: em(-75px);
+          top: em(-125px);
           left: em(5px);
           text-align: left;
           background-color: palette(black);
@@ -83,7 +84,7 @@
 
 
 // Settings when Fullscreen
-video::-webkit-media-controls { display:none !important;}
+// video::-webkit-media-controls { display:none !important;}
 :-webkit-full-screen {
   .player, .player__controls, .mejs__player {
     border-radius: 0;

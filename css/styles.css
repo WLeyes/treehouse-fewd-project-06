@@ -411,6 +411,11 @@ ul {
   text-align: center;
   color: #b6b6b6; }
 
+.player__controls--settings--player-choice {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .player__controls--settings--player-choice li {
+    padding: 5px 5px; }
+
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // scss/components/_grid.scss :  grid container for grid system
@@ -561,9 +566,10 @@ ul {
     z-index: 2;
     cursor: pointer; }
     .player__controls--settings--player-choice {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       display: none;
       position: absolute;
-      top: -4.6875em;
+      top: -7.8125em;
       left: 0.3125em;
       text-align: left;
       background-color: #0b0b0b;
@@ -591,9 +597,6 @@ ul {
       .player__controls {
         border-radius: 0 0 .4em .4em;
         font-size: 2.25em; } }
-
-video::-webkit-media-controls {
-  display: none !important; }
 
 :-webkit-full-screen .player, :-webkit-full-screen .player__controls, :-webkit-full-screen .mejs__player {
   border-radius: 0; }
