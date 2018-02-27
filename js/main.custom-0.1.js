@@ -92,7 +92,6 @@ function playPause() {
   const play            = document.querySelector('.player__controls--play');
   const video           = document.querySelector('.player');
   video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
-  video.load();
   video.preload         = 'none';
   // play and pause button controls
   // If you click on video
@@ -222,8 +221,19 @@ function customControls(){
   const customSelected = document.querySelector('.player-choice--custom');
   customSelected.addEventListener('click', () => {
     const videoControls = document.querySelector('.player__controls');
+    let isMobile = { // https://www.abeautifulsite.net/detecting-mobile-devices-with-javascript
+      Android:    () => {return navigator.userAgent.match(/Android/i)},
+      BlackBerry: () => {return navigator.userAgent.match(/BlackBerry/i)},
+      iOS:        () => {return navigator.userAgent.match(/iPhone|iPad|iPod/i)},
+      Opera:      () => {return navigator.userAgent.match(/Opera Mini/i)},
+      Windows:    () => {return navigator.userAgent.match(/IEMobile/i)},
+      any:        () => {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows())}
+    };
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
+    }
+    if(isMobile.any()) {
+      videoControls.style.display = 'none';
     }
   });
 }
