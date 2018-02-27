@@ -6,11 +6,12 @@ window.addEventListener("load", (event) => {
   fullscreen();
   playPause();
   settings();
-  customControls();
+
   html5Controls();
   mediaElement();
   closedCaption();
   volume();
+
   let isMobile = { // https://www.abeautifulsite.net/detecting-mobile-devices-with-javascript
     Android:    () => {return navigator.userAgent.match(/Android/i)},
     BlackBerry: () => {return navigator.userAgent.match(/BlackBerry/i)},
@@ -19,10 +20,13 @@ window.addEventListener("load", (event) => {
     Windows:    () => {return navigator.userAgent.match(/IEMobile/i)},
     any:        () => {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows())}
   };
-  if(isMobile.any()) { /// working on this section
+  if( isMobile.any() ) { /// working on this section
     videoControls.style.display = 'none';
-    alert('mobile');
+    alert( isMobile.any() );
+  } else {
+    customControls();
   }
+
 }); // end window.load
 
 
