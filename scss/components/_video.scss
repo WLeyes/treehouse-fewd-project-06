@@ -4,6 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 
+video::-webkit-media-controls { display:none !important;} // todo: confirm if needed
 // Default styles
 .player{
     max-width: 100%;
@@ -84,8 +85,6 @@
 
 
 // Settings when Fullscreen
-
-// video::-webkit-media-controls { display:none !important;} // todo: confirm if needed
 :-webkit-full-screen {
   .player, .player__controls, .mejs__player {
     border-radius: 0;
