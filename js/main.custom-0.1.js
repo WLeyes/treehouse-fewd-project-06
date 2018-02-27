@@ -1,12 +1,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 // window.load event
 ////////////////////////////////////////////////////////////////////////////////
-window.addEventListener("load", (event) => {
+window.addEventListener("load", function(event) {
+  //test
+  // let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+  // if(isIE11){
+  //   alert('Browser is: '+ navigator.userAgent);
+  // } else {
+  //   alert('false');
+  // }
   fullscreen();
   playPause();
   settingsMenu();
   closedCaption();
   volume();
+
 }); // end window.load
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -20,8 +28,10 @@ function fullscreen() {
     // check if fullscreen is supported
     fullscreenEnabled();
     // check if already fullscreen and how to handle it
-    fullscreen.addEventListener('click', (e) => handleFullscreen());
-    let handleFullscreen = () => {
+    fullscreen.addEventListener('click', function(e) {
+      handleFullscreen();
+    });
+    let handleFullscreen = function() {
      if (isFullScreen()) {
              if (document.exitFullscreen) document.exitFullscreen();
         else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
@@ -39,7 +49,7 @@ function fullscreen() {
      }
   }
   // Check if fullscreen is already enabled
-  let isFullScreen = () => {
+  let isFullScreen = function() {
      return !!(document.fullScreen
             || document.webkitIsFullScreen
             || document.mozFullScreen
@@ -48,16 +58,18 @@ function fullscreen() {
   }
 
   // Set data-fulscreen's value
-  let setFullscreenDataForPlayer = (state) => videoContainer.setAttribute('data-fullscreen', !!state);
-  document.addEventListener('fullscreenchange',      (e) => setFullscreenDataForPlayer(!!(document.fullScreen || document.fullscreenElement)));
-  document.addEventListener('webkitfullscreenchange', () => setFullscreenDataForPlayer(!!document.webkitIsFullScreen));
-  document.addEventListener('mozfullscreenchange',    () => setFullscreenDataForPlayer(!!document.mozFullScreen));
-  document.addEventListener('msfullscreenchange',     () => setFullscreenDataForPlayer(!!document.msFullscreenElement));
-  let setFullscreenDataForControls = (state) => videoControls.setAttribute('data-fullscreen', !!state);
-  document.addEventListener('fullscreenchange',      (e) => setFullscreenDataForControls(!!(document.fullScreen || document.fullscreenElement)));
-  document.addEventListener('webkitfullscreenchange', () => setFullscreenDataForControls(!!document.webkitIsFullScreen));
-  document.addEventListener('mozfullscreenchange',    () => setFullscreenDataForControls(!!document.mozFullScreen));
-  document.addEventListener('msfullscreenchange',     () => setFullscreenDataForControls(!!document.msFullscreenElement));
+  let setFullscreenDataForPlayer = function(state) {
+    videoContainer.setAttribute('data-fullscreen', !!state);
+  };
+  document.addEventListener('fullscreenchange',      function(e) {setFullscreenDataForPlayer(!!(document.fullScreen || document.fullscreenElement));});
+  document.addEventListener('webkitfullscreenchange', function() {setFullscreenDataForPlayer(!!document.webkitIsFullScreen)});
+  document.addEventListener('mozfullscreenchange',    function() {setFullscreenDataForPlayer(!!document.mozFullScreen)});
+  document.addEventListener('msfullscreenchange',     function() {setFullscreenDataForPlayer(!!document.msFullscreenElement)});
+  let setFullscreenDataForControls = function(state) {videoControls.setAttribute('data-fullscreen', !!state);}
+  document.addEventListener('fullscreenchange',      function(e) {setFullscreenDataForControls(!!(document.fullScreen || document.fullscreenElement));});
+  document.addEventListener('webkitfullscreenchange', function() {setFullscreenDataForControls(!!document.webkitIsFullScreen)});
+  document.addEventListener('mozfullscreenchange',    function() {setFullscreenDataForControls(!!document.mozFullScreen)});
+  document.addEventListener('msfullscreenchange',     function() {setFullscreenDataForControls(!!document.msFullscreenElement)});
   if(videoControls.getAttribute('data-fullscreen') == 'true') {
     const video  = document.querySelector('.player');
     const videoControls   = document.querySelector('.player__controls');
@@ -90,7 +102,7 @@ function playPause() {
   video.preload         = 'none';
   // play and pause button controls
   // If you click on video
-     play.addEventListener('click', () => {
+     play.addEventListener('click', function() {
       if (video.ended) {
         video.currentTime = 0;
       }
@@ -102,7 +114,7 @@ function playPause() {
     }, false);
 
   // If you click on play/pause button
-    video.addEventListener('click', () => {
+    video.addEventListener('click', function() {
      if (video.ended) {
        video.currentTime = 0;
      }
@@ -113,14 +125,14 @@ function playPause() {
      }
    }, false);
 
-    video.addEventListener('play', () => {
+    video.addEventListener('play', function() {
       playPauseToggle = document.querySelector('.fa-play');
       playPauseToggle.classList.remove('fa-play');
       playPauseToggle.classList.add('fa-pause');
       play.title = 'Click to pause';
     }, false);
 
-    video.addEventListener('pause', () => {
+    video.addEventListener('pause', function() {
       playPauseToggle = document.querySelector('.fa-pause');
       playPauseToggle.classList.remove('fa-pause');
       playPauseToggle.classList.add('fa-play');
@@ -128,7 +140,7 @@ function playPause() {
     }, false);
 
 
-    video.addEventListener('ended', () => {
+    video.addEventListener('ended', function() {
       this.pause();
       playPauseToggle = document.querySelector('.fa-pause');
       playPauseToggle.classList.remove('fa-pause');
@@ -142,7 +154,8 @@ function closedCaption() {
   const closedCaption     = document.querySelector('.player__controls--cc');
   const closedCaptionText = document.querySelector('.player__closed-caption');
   closedCaptionText.style.display = 'none';
-  closedCaption.addEventListener('click', () => {
+
+  closedCaption.addEventListener('click', function() {
         if(closedCaptionText.style.display == 'none') {
           closedCaptionText.style.display = 'initial';
           closedCaption.style.color = 'yellow';
@@ -154,10 +167,10 @@ function closedCaption() {
   });
 }
 
-function captionHighlight() {
+function captionHighlight() { // todo:// add pointer finger mouse icon on highlighted text to indicate jump to in video
   const video = document.querySelector('.player');
   const span = document.querySelectorAll('span');
-  video.addEventListener('timeupdate', () => {
+  video.addEventListener('timeupdate', function() {
     for (let i = 0; i < span.length; i+= 1) {
       if(video.currentTime > span[i].getAttribute('data-start') && video.currentTime < span[i].getAttribute('data-end')) {
         span[i].style.backgroundColor='yellow';
@@ -167,9 +180,9 @@ function captionHighlight() {
     }
   });
   for (i = 0; i < span.length; i += 1) {
-      span[i].addEventListener('click', (event) =>  {
+      span[i].addEventListener('click', function(event) {
         video.currentTime = event.target.getAttribute('data-start');
-      })
+      });
     }
   } // end captionHighlight
 
@@ -183,8 +196,8 @@ function volume() {
   let volumeToggle = document.querySelector('.fa-volume-off');
 
     // Volume
-    volume.addEventListener('mouseover', () => volumeSlider.style.display = 'block');
-    volume.addEventListener('mouseout', () => volumeSlider.style.display = 'none');
+    volume.addEventListener('mouseover', function() {volumeSlider.style.display = 'block';});
+    volume.addEventListener('mouseout', function() {volumeSlider.style.display = 'none';});
 
   // Mute / un-mute
   function mute() {
@@ -203,7 +216,7 @@ function volume() {
     video.muted = false;
   }
 
-  volume.addEventListener('dblclick', () => {
+  volume.addEventListener('dblclick', function() {
     if(volume.getAttribute('title') == 'Volume') {
       mute();
     } else {
@@ -217,7 +230,7 @@ function settingsMenu() {
   const settings = document.querySelector('.player__controls--settings');
   const playerChoiceMenu = document.querySelector('.player__controls--settings--player-choice');
   playerChoiceMenu.style.display = 'none';
-  settings.addEventListener('click', () => {
+  settings.addEventListener('click', function() {
         if(playerChoiceMenu.style.display == 'none') {
           playerChoiceMenu.style.display = 'initial';
           playerChoiceMenu.style.color = 'yellow';
@@ -241,7 +254,7 @@ function settingsMenu() {
 function html5Controls() {
   const html5Selected = document.querySelector('.player-choice--defaultHTML5');
   const videoControls = document.querySelector('.player__controls');
-  html5Selected.addEventListener('click', () => {
+  html5Selected.addEventListener('click', function() {
     const video = document.querySelector('.player');
     // Hide custom controls
     videoControls.style.display = 'none';
@@ -273,14 +286,14 @@ function controlReset() {
   sectionElementTag.append(buttonElementTag);
   buttonElementTag.append(cogIconTag);
   // cheap way to reset controls
-  buttonElementTag.addEventListener('click', () => {
+  buttonElementTag.addEventListener('click', function() {
     window.location.reload();
   });
 }
 // settings--custom-controls
 function customControls(){
   const customSelected = document.querySelector('.player-choice--custom');
-  customSelected.addEventListener('click', () => {
+  customSelected.addEventListener('click', function() {
     const videoControls = document.querySelector('.player__controls');
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
@@ -294,7 +307,7 @@ function mediaElement(){
   const mediaElementSelected  = document.querySelector('.player-choice--mediaElement');
   const videoControls         = document.querySelector('.player__controls');
 
-  mediaElementSelected.addEventListener('click', () => {
+  mediaElementSelected.addEventListener('click', function() {
     const headTag                   = document.getElementsByTagName('head')[0];
     const mediaElementJavascriptTag = document.createElement('script');
     videoControls.style.display = 'none';
