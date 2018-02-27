@@ -12,15 +12,7 @@ window.addEventListener("load", (event) => {
   closedCaption();
   volume();
 
-  // work out how to detect iOS
-  const videoControls   = document.querySelector('.player__controls');
-    videoControls.style.display = 'none';
-
-if(navigator.userAgent.contains('Mobile')){
-  document.getElementsByTagName('h1')[0].append(window.navigator.userAgent);
-}
-
-
+  //to:do work out how to detect iOS and disable custom controls
 
 }); // end window.load
 
