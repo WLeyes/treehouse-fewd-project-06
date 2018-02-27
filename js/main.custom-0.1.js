@@ -11,7 +11,8 @@ window.addEventListener("load", (event) => {
   mediaElement();
   closedCaption();
   volume();
-  if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { /// working on this section
+  const isIOS = (navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1)
+  if(isIOS) { /// working on this section
     videoControls.style.display = 'none';
     alert('iOS');
   } else {
