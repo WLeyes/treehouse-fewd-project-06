@@ -18,81 +18,87 @@
   </head>
 
   <body class="container">
-    <article>
-      <main class="grid__row">
+    <main class="grid__row">
+      <article>
         <header class="grid__column--12">
           <h1 class="headline--primary">Connecting to the Internet</h1>
         </header>
 
         <section class="player__container grid__row">
-          <video controls class="player grid__column--12">
-            <source src="video/video.mp4" poster="img/Team-Treehouse-Review.jpg" type="video/mp4">
-            <source src="video/video.ogg" poster="img/Team-Treehouse-Review.jpg" type="video/ogg">
+          <h2 class="hidden">Video Player</h2>
+          <video controls class="player grid__column--12" poster="img/Team-Treehouse-Review.jpg">
+            <source src="video/video.mp4"  type="video/mp4">
+            <source src="video/video.ogg"  type="video/ogg">
               <!-- fallback -->
               <p>Your browser does not support HTML5 video!</p>
           </video>
           <section class="player__controls grid__row grid__column--12">
-              <button class="player__controls--settings grid__column--1" title="Settings" type="button" name="settings">
+            <h2 class="hidden">Video Player Controls</h2>
+              <section class="player__controls--settings grid__column--1" title="Settings">
+                <h2 class="hidden">Video Player Controls menu</h2>
                 <i class="fal fa-cog"></i>
                 <ul class="player__controls--settings--player-choice">
-                  <a href="#" class="player-choice--custom" title="Custom Controls"><li>Use Custom Controls (Default)</li></a>
-                  <a href="#" class="player-choice--mediaElement" title="MediaElement Controls"><li>Use MediaElement Controls</li></a>
-                  <a href="#" class="player-choice--defaultHTML5" title="HTML 5 Controls"><li>Use Default HTML5 Controls</li></a>
-                <ul>
-              </button>
-              <button class="player__controls--cc grid__column--1" title="Closed Caption" type="button" name="cc" >
+                  <li><a href="#" class="player-choice--custom" title="Custom Controls">Use Custom Controls (Default)</a></li>
+                  <li><a href="#" class="player-choice--mediaElement" title="MediaElement Controls">Use MediaElement Controls</a></li>
+                  <li><a href="#" class="player-choice--defaultHTML5" title="HTML 5 Controls">Use Default HTML5 Controls</a></li>
+                </ul>
+              </section>
+              <section class="player__controls--cc grid__column--1" title="Closed Caption">
+                <h2 class="hidden">Toggle closed-captioned text</h2>
                 <i class="fal fa-closed-captioning"></i>
-              </button>
-              <button class="player__controls--play grid__column--1" title="Click to Play" type="button" name="play">
+              </section>
+              <section class="player__controls--play grid__column--1" title="Click to Play">
+                <h2 class="hidden">Toggle play pause</h2>
                 <i class="fal fa-play"></i>
-              </button>
+              </section>
               <input class="player__controls--playback-possition grid__column--6" type="range" min="0">
-              <button class="player__controls--volume grid__column--1" title="Volume" type="button" name="volume">
+              <section class="player__controls--volume grid__column--1" title="Volume">
+                <h2 class="hidden">Volume control slider</h2>
                 <i class="fal fa-volume-off"></i>
                 <input class="player__controls--volume-slider" type="range" min="0">
-              </button>
-              <button class="player__controls--fullscreen grid__column--1" title="Fullscreen" type="button" name="fullscreen">
+              </section>
+              <section class="player__controls--fullscreen grid__column--1" title="Fullscreen">
+                <h2 class="hidden">Toggle full screen</h2>
                 <i class="fal fa-expand-wide"></i>
-              </button>
-              <button class="player__controls--info grid__column--1" title="Help" type="button" name="info">
+              </section>
+              <section class="player__controls--info grid__column--1" title="Help">
+                <h2 class="hidden">Toggle help menu</h2>
                 <i class="fal fa-info-circle"></i>
-              </button>
+              </section>
           </section>
         </section>
 
         <section class="player__closed-caption grid__row">
+          <h2 class="hidden">Closed-caption text display</h2>
           <p class="headline--secondary">
-            <span>Now that we've looked at the architecture of the internet,</span>
-            <span> let's see how you might connect your personal devices to the internet inside your house.</span>
-            <span>Well there are many ways to connect to the internet,</span>
-            <span>and most often people connect wirelessly.</span>
+            <span data-start='' data-end=''>Now that we've looked at the architectureof the internet, let's see how you might</span>
+            <span data-start='' data-end=''>connect your personal devices tothe internet inside your house.</span>
+            <span data-start='' data-end=''>Well there are many ways to connect to the internet, and</span>
+            <span data-start='' data-end=''>most often people connect wirelessly.</span>
           </p>
           <p class=" headline--secondary">
-            <span>Let's look at an example of how you can connect to the internet. </span>
-            <span>If you live in a city or a town,</span>
-            <span>you probably have a coaxial cable for cable Internet,</span>
-            <span>or a phone line if you have DSL,</span>
-            <span>running to the outside of your house,</span>
-            <span>that connects you to the Internet Service Provider, or ISP.</span>
-            <span>If you live far out in the country,<span>
-            <span>you'll more likely have a dish outside your house,</span>
-            <span>connecting you wirelessly to your closest ISP,</span>
-            <span>or you might also use the telephone system.</span>
+            <span data-start='' data-end=''>Let's look at an example of how you can connect to the internet.</span>
+            <span data-start='' data-end=''>If you live in a city or a town, you probably have a coaxial cable for</span>
+            <span data-start='' data-end=''> cable Internet, or a phone line if you have DSL, running to the outside of</span>
+            <span data-start='' data-end=''>your house, that connects you to the Internet Service Provider, or ISP.</span>
+            <span data-start='' data-end=''>If you live far out in the country, you'll more likely have</span>
+            <span data-start='' data-end=''>a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
+            <span data-start='' data-end=''>you might also use the telephone system.</span>
           </p>
           <p class="headline--secondary">
-            <span class="">Whether a wire comes straight from the ISP hookup outside your house,</span>
-            <span class="">or it travels over radio  waves from your roof,</span>
-            <span class="">the first stop a wire will make once inside your house, is at your modem.</span>
-            <span class="">A modem is what connects the internet  to your network at home.</span>
-            <span class="">A few common residential modems are DSL or</span>
+            <span data-start='' data-end=''>Whether a wire comes straight from the ISP hookup outside your house, or</span>
+            <span data-start='' data-end=''>it travels over radio  waves from your roof,</span>
+            <span data-start='' data-end=''>the first stop a wire will make once inside your house, is at your modem.</span>
+            <span data-start='' data-end=''>A modem is what connects the internet  to your network at home.</span>
+            <span data-start='' data-end=''>A few common residential modems are DSL or</span>
           </p>
         </section>
         <footer  class="grid__column--12">
-          <span class="grid__row">
+          <section class="grid__row">
             <h3 class="headline--footer"><i class="fas fa-terminal"></i>  &copy; Warren Leyes 2018 || video is property of Treehouse</h3>
-          </span>
+          </section>
         </footer>
-      </main>
-    </article>
+      </article>
+    </main>
   </body>
 </html>
