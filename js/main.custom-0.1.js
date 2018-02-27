@@ -226,7 +226,7 @@ function customControls(){
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
     }
-    if(iOS == true){
+    if(iOS == 'true'){
       videoControls.style.display == 'none';
       alert('iOS detected');
     }
