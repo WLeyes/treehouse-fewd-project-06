@@ -24,6 +24,7 @@ window.addEventListener("load", (event) => {
     if( ios ) {
         if ( !standalone && safari ) {
             alert('browser');
+            videoControls.style.display = 'none';
         } else if ( standalone && !safari ) {
             alert('standalone');
         } else if ( !standalone && !safari ) {
