@@ -14,7 +14,6 @@ window.addEventListener("load", function(event) {
   settingsMenu();
   closedCaption();
   volume();
-
 }); // end window.load
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -127,15 +126,15 @@ function playPause() {
 
     video.addEventListener('play', function() {
       playPauseToggle = document.querySelector('.fa-play');
-      playPauseToggle.classList.remove('fa-play');
-      playPauseToggle.classList.add('fa-pause');
+      playPauseToggle.classList.replace('fa-play', 'fa-pause');
+      // playPauseToggle.classList.add('fa-pause');
       play.title = 'Click to pause';
     }, false);
 
     video.addEventListener('pause', function() {
       playPauseToggle = document.querySelector('.fa-pause');
-      playPauseToggle.classList.remove('fa-pause');
-      playPauseToggle.classList.add('fa-play');
+      playPauseToggle.classList.replace('fa-pause', 'fa-play');
+      // playPauseToggle.classList.add('fa-play');
       play.title = 'Click to play';
     }, false);
 
@@ -143,8 +142,8 @@ function playPause() {
     video.addEventListener('ended', function() {
       this.pause();
       playPauseToggle = document.querySelector('.fa-pause');
-      playPauseToggle.classList.remove('fa-pause');
-      playPauseToggle.classList.add('fa-play');
+      playPauseToggle.classList.replace('fa-pause', 'fa-play');
+      // playPauseToggle.classList.add('fa-play');
       play.title = 'Click to play';
     }, false);
 }
@@ -209,8 +208,8 @@ function volume() {
   }
   function unmute(){
     volumeToggle = document.querySelector('.fa-volume-mute');
-    volumeToggle.classList.remove('fa-volume-mute');
-    volumeToggle.classList.add('fa-volume-off');
+    volumeToggle.classList.replace('fa-volume-mute', 'fa-volume-off');
+    // volumeToggle.classList.add('fa-volume-off');
     volumeToggle.style.color = '';
     volume.setAttribute('title', 'Volume');
     video.muted = false;
@@ -331,8 +330,8 @@ function mediaElement(){
 
     // Add required class to the video element
     const player = document.querySelector('.player');
-    player.classList.add('mejs__player');
-    player.classList.remove('player');
+    // player.classList.add('mejs__player');
+    player.classList.replace('player', 'mejs__player');
     const mejsPlayer = document.querySelector('.mejs__player');
     mejsPlayer.style.width  = '100%';
     mejsPlayer.style.height = '100%';
