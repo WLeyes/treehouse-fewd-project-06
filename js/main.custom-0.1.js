@@ -11,12 +11,15 @@ window.addEventListener("load", (event) => {
   mediaElement();
   closedCaption();
   volume();
+
   // work out how to detect iOS
-  const isIOS = (navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1)
   const videoControls   = document.querySelector('.player__controls');
     videoControls.style.display = 'none';
 
-document.getElementsByTagName('h1')[0].append(window.navigator.userAgent);
+if(navigator.userAgent.contains('Mobile')){
+  document.getElementsByTagName('h1')[0].append(window.navigator.userAgent);
+}
+
 
 
 }); // end window.load
