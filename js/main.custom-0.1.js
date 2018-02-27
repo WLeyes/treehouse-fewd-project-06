@@ -11,11 +11,6 @@ window.addEventListener("load", (event) => {
   mediaElement();
   closedCaption();
   volume();
-  const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
-  if(iOS){
-    videoControls.style.display = 'none';
-    alert('iOS detected');
-  }
 }); // end window.load
 
 
@@ -97,6 +92,7 @@ function playPause() {
   const play            = document.querySelector('.player__controls--play');
   const video           = document.querySelector('.player');
   video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
+  video.load();
   video.preload         = 'none';
   // play and pause button controls
   // If you click on video
