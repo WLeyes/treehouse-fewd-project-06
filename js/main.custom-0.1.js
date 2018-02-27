@@ -12,6 +12,7 @@ window.addEventListener("load", (event) => {
   closedCaption();
   volume();
   const isIOS = (navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1)
+  const videoControls   = document.querySelector('.player__controls');
   if(isIOS) { /// working on this section
     videoControls.style.display = 'none';
     alert('iOS');
