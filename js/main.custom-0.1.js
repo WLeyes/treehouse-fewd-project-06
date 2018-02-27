@@ -11,6 +11,11 @@ window.addEventListener("load", (event) => {
   mediaElement();
   closedCaption();
   volume();
+  const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+  if(iOS){
+    videoControls.style.display = 'none';
+    alert('iOS detected');
+  }
 }); // end window.load
 
 
@@ -211,7 +216,6 @@ function html5Controls() {
       // Enable html5 defaul controls
       video.controls       = true;
       video.style.borderRadius = '0';
-
   });
 }
 
@@ -220,15 +224,10 @@ function html5Controls() {
 // settings--custom-controls
 function customControls(){
   const customSelected = document.querySelector('.player-choice--custom');
-  const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
   customSelected.addEventListener('click', () => {
     const videoControls = document.querySelector('.player__controls');
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
-    }
-    if(iOS == 'true'){
-      videoControls.style.display == 'none';
-      alert('iOS detected');
     }
   });
 }

@@ -545,9 +545,6 @@ ul {
 // scss/components/_video.scss : Video player styles
 ////////////////////////////////////////////////////////////////////////////////
 */
-video::-webkit-media-controls {
-  display: none !important; }
-
 .player {
   max-width: 100%;
   display: flex;
