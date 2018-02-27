@@ -234,6 +234,7 @@ function customControls(){
     }
     if(isMobile.any()) {
       videoControls.style.display = 'none';
+      alert('mobile');
     }
   });
 }
