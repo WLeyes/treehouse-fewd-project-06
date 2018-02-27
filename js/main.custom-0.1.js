@@ -11,6 +11,18 @@ window.addEventListener("load", (event) => {
   mediaElement();
   closedCaption();
   volume();
+  let isMobile = { // https://www.abeautifulsite.net/detecting-mobile-devices-with-javascript
+    Android:    () => {return navigator.userAgent.match(/Android/i)},
+    BlackBerry: () => {return navigator.userAgent.match(/BlackBerry/i)},
+    iOS:        () => {return navigator.userAgent.match(/iPhone|iPad|iPod/i)},
+    Opera:      () => {return navigator.userAgent.match(/Opera Mini/i)},
+    Windows:    () => {return navigator.userAgent.match(/IEMobile/i)},
+    any:        () => {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows())}
+  };
+  if(isMobile.any()) { /// working on this section
+    videoControls.style.display = 'none';
+    alert('mobile');
+  }
 }); // end window.load
 
 
@@ -221,21 +233,10 @@ function customControls(){
   const customSelected = document.querySelector('.player-choice--custom');
   customSelected.addEventListener('click', () => {
     const videoControls = document.querySelector('.player__controls');
-    let isMobile = { // https://www.abeautifulsite.net/detecting-mobile-devices-with-javascript
-      Android:    () => {return navigator.userAgent.match(/Android/i)},
-      BlackBerry: () => {return navigator.userAgent.match(/BlackBerry/i)},
-      iOS:        () => {return navigator.userAgent.match(/iPhone|iPad|iPod/i)},
-      Opera:      () => {return navigator.userAgent.match(/Opera Mini/i)},
-      Windows:    () => {return navigator.userAgent.match(/IEMobile/i)},
-      any:        () => {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows())}
-    };
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
     }
-    if(isMobile.any()) {
-      videoControls.style.display = 'none';
-      alert('mobile');
-    }
+
   });
 }
 
