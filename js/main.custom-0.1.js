@@ -146,6 +146,7 @@ function closedCaption() {
         if(closedCaptionText.style.display == 'none') {
           closedCaptionText.style.display = 'initial';
           closedCaption.style.color = 'yellow';
+          captionHighlight();
         } else {
           closedCaptionText.style.display = 'none';
           closedCaption.style.color = '';
