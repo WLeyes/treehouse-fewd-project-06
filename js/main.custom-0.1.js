@@ -16,23 +16,7 @@ window.addEventListener("load", (event) => {
   const videoControls   = document.querySelector('.player__controls');
     videoControls.style.display = 'none';
 
-    var standalone = window.navigator.standalone,
-        userAgent = window.navigator.userAgent.toLowerCase(),
-        safari = /safari/.test( userAgent ),
-        ios = /iphone|ipod|ipad/.test( userAgent );
-
-    if( ios ) {
-        if ( !standalone && safari ) {
-            alert('browser');
-            videoControls.style.display = 'none';
-        } else if ( standalone && !safari ) {
-            alert('standalone');
-        } else if ( !standalone && !safari ) {
-            alert('uiwebview');
-        };
-    } else {
-        alert('not iOS');
-    };
+document.getElementsByTagName('h1')[0].append(window.navigator.userAgent);
 
 
 }); // end window.load
