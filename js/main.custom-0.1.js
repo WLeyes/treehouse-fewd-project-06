@@ -228,6 +228,7 @@ function customControls(){
     }
     if(iOS == true){
       videoControls.style.display == 'none';
+      alert('iOS detected');
     }
   });
 }
