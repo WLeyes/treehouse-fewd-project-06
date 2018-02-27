@@ -222,9 +222,11 @@ function customControls(){
   const customSelected = document.querySelector('.player-choice--custom');
   const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
   customSelected.addEventListener('click', () => {
+    const videoControls         = document.querySelector('.player__controls');
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
-    } else if(iOS){
+    }
+    if(iOS){
       videoControls.style.display == 'none';
     }
   });
