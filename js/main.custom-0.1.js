@@ -209,8 +209,9 @@ function html5Controls() {
       // Hide custom controls
       videoControls.style.display = 'none';
       // Enable html5 defaul controls
-      // video.addAttribute('controls');
       video.controls       = true;
+      video.style.borderRadius = '0';
+
   });
 }
 
@@ -219,9 +220,12 @@ function html5Controls() {
 // settings--custom-controls
 function customControls(){
   const customSelected = document.querySelector('.player-choice--custom');
+  const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
   customSelected.addEventListener('click', () => {
     if(videoControls.style.display == 'none') {
       videoControls.style.display = 'initial';
+    } else if(iOS){
+      videoControls.style.display == 'none';
     }
   });
 }
@@ -245,6 +249,8 @@ function settings() {
         }
   });
 }
+
+
 
 
 
