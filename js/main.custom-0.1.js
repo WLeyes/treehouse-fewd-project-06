@@ -1,22 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////
+// window.load event
+////////////////////////////////////////////////////////////////////////////////
 window.addEventListener("load", (event) => {
-  const video           = document.querySelector('.player');
-  // video.controls        = false;
-  video.preload         = 'none';
-  let playPauseToggle   = document.querySelector('.fa-play');
   fullscreen();
   playPause();
-  settings();
-  customControls();
-  html5Controls();
-  mediaElement();
+  settingsMenu();
   closedCaption();
   volume();
-
-  //to:do work out how to detect iOS and disable custom controls
-
 }); // end window.load
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Fullscreen
@@ -87,9 +78,10 @@ function fullscreenEnabled(){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// controls
+// Control Buttons || todo: hide custom controls on iOS
 ////////////////////////////////////////////////////////////////////////////////
 
+// Play/Pause button
 function playPause() {
   const videoControls   = document.querySelector('.player__controls');
   const play            = document.querySelector('.player__controls--play');
@@ -145,8 +137,6 @@ function playPause() {
     }, false);
 }
 
-
-
 // Closed caption controls
 function closedCaption() {
   const closedCaption     = document.querySelector('.player__controls--cc');
@@ -163,7 +153,7 @@ function closedCaption() {
   });
 }
 
-// Volume controls
+// Volume slider
 function volume() {
   const video      = document.querySelector('.player');
   const volume     = document.querySelector('.player__controls--volume');
@@ -202,37 +192,8 @@ function volume() {
   });
 }
 
-
-
-function html5Controls() {
-  const html5Selected = document.querySelector('.player-choice--defaultHTML5');
-  const videoControls         = document.querySelector('.player__controls');
-    html5Selected.addEventListener('click', () => {
-      const video           = document.querySelector('.player');
-      // Hide custom controls
-      videoControls.style.display = 'none';
-      // Enable html5 defaul controls
-      video.controls       = true;
-      video.style.borderRadius = '0';
-  });
-}
-
-
-
-// settings--custom-controls
-function customControls(){
-  const customSelected = document.querySelector('.player-choice--custom');
-  customSelected.addEventListener('click', () => {
-    const videoControls = document.querySelector('.player__controls');
-    if(videoControls.style.display == 'none') {
-      videoControls.style.display = 'initial';
-    }
-
-  });
-}
-
-// settings cog icon on custom controls
-function settings() {
+// settings button
+function settingsMenu() {
   const settings = document.querySelector('.player__controls--settings');
   const playerChoiceMenu = document.querySelector('.player__controls--settings--player-choice');
   playerChoiceMenu.style.display = 'none';
@@ -247,16 +208,67 @@ function settings() {
           settings.style.color = '';
         }
   });
+  customControls();
+  html5Controls();
+  mediaElement();
 }
 
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////
-// settings--MediaElement.js
+// Settings Menu pop-up  (Cog Icon)
 ////////////////////////////////////////////////////////////////////////////////
 
+// settings--defaultHTML5-controls
+function html5Controls() {
+  const html5Selected = document.querySelector('.player-choice--defaultHTML5');
+  const videoControls = document.querySelector('.player__controls');
+  html5Selected.addEventListener('click', () => {
+    const video = document.querySelector('.player');
+    // Hide custom controls
+    videoControls.style.display = 'none';
+    document.querySelector('.fa-cog').style.display = 'block';
+    // Enable html5 defaul controls
+    video.controls       = true;
+    video.style.borderRadius = '0';
+    // Reset Controls
+    controlReset();
+  });
+}
+
+// controlReset
+function controlReset() {
+  // create new settings cog and append to DOM
+  const articleElement         = document.getElementsByTagName('article')[0];
+  const sectionElementTag      = document.createElement('section');
+  // sectionElementTag.className = 'player__controls--settings--player-choice';
+
+  const buttonElementTag     = document.createElement('button');
+  buttonElementTag.className = 'player__controls--settings';
+  buttonElementTag.title     = 'Settings';
+  buttonElementTag.type      = 'button';
+  buttonElementTag.name      = 'settings';
+  const cogIconTag         = document.createElement('i');
+  cogIconTag.className     = 'fal fa-cog';
+  cogIconTag.style.fontSize = '32px';
+  articleElement.append(sectionElementTag);
+  sectionElementTag.append(buttonElementTag);
+  buttonElementTag.append(cogIconTag);
+  // cheap way to reset controls
+  buttonElementTag.addEventListener('click', () => {
+    window.location.reload();
+  });
+}
+// settings--custom-controls
+function customControls(){
+  const customSelected = document.querySelector('.player-choice--custom');
+  customSelected.addEventListener('click', () => {
+    const videoControls = document.querySelector('.player__controls');
+    if(videoControls.style.display == 'none') {
+      videoControls.style.display = 'initial';
+    }
+  });
+}
+
+// settings--mediaElement-controls
 function mediaElement(){
   const play = document.querySelector('.player__controls--play');
   const mediaElementSelected  = document.querySelector('.player-choice--mediaElement');
@@ -296,17 +308,7 @@ function mediaElement(){
     const closedCaptionText = document.querySelector('.player__closed-caption');
     closedCaptionText.style.display = 'initial';
 
-    // create new settings cog and append to DOM
-    const articleElement       = document.getElementsByTagName('article')[0];
-    const sectionElementTag    = document.createElement('section');
-    const buttonElementTag     = document.createElement('button');
-    buttonElementTag.className = 'player__controls--settings';
-    const cogIconTag = document.createElement('i');
-    cogIconTag.className = 'fal fa-cog';
-
-    articleElement.append(sectionElementTag);
-    sectionElementTag.append(buttonElementTag);
-    buttonElementTag.append(cogIconTag);
-    settings();
+    // Reset Controls
+    controlReset();
   });
 }
