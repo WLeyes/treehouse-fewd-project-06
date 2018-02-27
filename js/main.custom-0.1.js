@@ -11,18 +11,9 @@ window.addEventListener("load", (event) => {
   mediaElement();
   closedCaption();
   volume();
-
-  let isMobile = { // https://www.abeautifulsite.net/detecting-mobile-devices-with-javascript
-    Android:    () => {return navigator.userAgent.match(/Android/i)},
-    BlackBerry: () => {return navigator.userAgent.match(/BlackBerry/i)},
-    iOS:        () => {return navigator.userAgent.match(/iPhone|iPad|iPod/i)},
-    Opera:      () => {return navigator.userAgent.match(/Opera Mini/i)},
-    Windows:    () => {return navigator.userAgent.match(/IEMobile/i)},
-    any:        () => {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows())}
-  };
-  if( isMobile.any() ) { /// working on this section
+  if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { /// working on this section
     videoControls.style.display = 'none';
-    alert( isMobile.any() );
+    alert('iOS');
   } else {
     customControls();
   }
