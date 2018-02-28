@@ -2,18 +2,30 @@
 // window.load event
 ////////////////////////////////////////////////////////////////////////////////
 window.addEventListener("load", function(event) {
-  //test
-  // let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-  // if(isIE11){
-  //   alert('Browser is: '+ navigator.userAgent);
-  // } else {
-  //   alert('false');
-  // }
   fullscreen();
   playPause();
   settingsMenu();
   closedCaption();
   volume();
+
+  // Pollyfill for .remove()
+ // From:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
+(function (arr) {
+  arr.forEach(function (item) {
+    if (item.hasOwnProperty('remove')) {
+      return;
+    }
+    Object.defineProperty(item, 'remove', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function remove() {
+        if (this.parentNode !== null)
+          this.parentNode.removeChild(this);
+      }
+    });
+  });
+})([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
 }); // end window.load
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -97,58 +109,44 @@ function playPause() {
   const videoControls   = document.querySelector('.player__controls');
   const play            = document.querySelector('.player__controls--play');
   const video           = document.querySelector('.player');
-  video.controls        = false; // todo: if html5 video is supported, only add my controls if javascript is enabled
-  video.preload         = 'none';
-  // play and pause button controls
-  // If you click on video
-     play.addEventListener('click', function() {
-      if (video.ended) {
-        video.currentTime = 0;
-      }
-      if (video.paused) {
-        video.play();
+  video.controls        = false;
+
+  let togglePlayPause = function(type) {
+    if(type =='play') {
+      if(video.paused || video.ended) {
+        play.setAttribute('data-state', 'play');
       } else {
-        video.pause();
+        play.setAttribute('data-state', 'pause');
       }
-    }, false);
+    }
+  }
 
-  // If you click on play/pause button
-    video.addEventListener('click', function() {
-     if (video.ended) {
-       video.currentTime = 0;
-     }
-     if (video.paused) {
-       video.play();
-     } else {
-       video.pause();
-     }
-   }, false);
+video.addEventListener('play', function() {
+   togglePlayPause('play');
+   playPauseToggle = document.querySelector('.fa-play');
+   playPauseToggle.classList.replaceChild('fa-play', 'fa-pause');
+   play.title = 'Click to pause';
+}, false);
 
-    video.addEventListener('play', function() {
-      playPauseToggle = document.querySelector('.fa-play');
-      playPauseToggle.classList.replace('fa-play', 'fa-pause');
-      // playPauseToggle.classList.add('fa-pause');
-      play.title = 'Click to pause';
-    }, false);
+video.addEventListener('pause', function() {
+   togglePlayPause('play');
+   playPauseToggle = document.querySelector('.fa-pause');
+   playPauseToggle.classList.replaceChild('fa-pause', 'fa-play');
+   play.title = 'Click to play';
+}, false);
 
-    video.addEventListener('pause', function() {
-      playPauseToggle = document.querySelector('.fa-pause');
-      playPauseToggle.classList.replace('fa-pause', 'fa-play');
-      // playPauseToggle.classList.add('fa-play');
-      play.title = 'Click to play';
-    }, false);
-
-
-    video.addEventListener('ended', function() {
-      this.pause();
-      playPauseToggle = document.querySelector('.fa-pause');
-      playPauseToggle.classList.replace('fa-pause', 'fa-play');
-      // playPauseToggle.classList.add('fa-play');
-      play.title = 'Click to play';
-    }, false);
+play.addEventListener('click', function(e) {
+   if (video.paused || video.ended) video.play();
+   else video.pause();
+});
+video.addEventListener('click', function(e) {
+   if (video.paused || video.ended) video.play();
+   else video.pause();
+});
 }
 
-// Closed caption controls
+
+// Closed caption button
 function closedCaption() {
   const closedCaption     = document.querySelector('.player__controls--cc');
   const closedCaptionText = document.querySelector('.player__closed-caption');
@@ -166,6 +164,7 @@ function closedCaption() {
   });
 }
 
+// Highlights Closed Caption text
 function captionHighlight() { // todo:// add pointer finger mouse icon on highlighted text to indicate jump to in video
   const video = document.querySelector('.player');
   const span = document.querySelectorAll('span');
