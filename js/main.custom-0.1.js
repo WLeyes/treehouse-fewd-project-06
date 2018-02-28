@@ -126,7 +126,7 @@ video.addEventListener('play', function() {
    playPauseToggle = document.querySelector('.fa-play');
    //
    if(playPauseToggle.classList == 'undefined') {
-
+     alert('classList'+ playPauseToggle.classList);
    }
 
    playPauseToggle.classList.remove('fa-play');
