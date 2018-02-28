@@ -47,7 +47,7 @@
             <h2 class="hidden">Video Player Controls</h2>
               <section class="player__controls--settings grid__column--1" title="Settings">
                 <h2 class="hidden">Video Player Controls menu</h2>
-                <i class="fal fa-cog"></i>
+                <i class="fal fa-cog fa-spin"></i>
                 <ul class="player__controls--settings--player-choice">
                   <li><a href="#" class="player-choice--custom" title="Custom Controls">Use Custom Controls (Default)</a></li>
                   <li><a href="#" class="player-choice--mediaElement" title="MediaElement Controls">Use MediaElement Controls</a></li>
@@ -62,12 +62,14 @@
                 <h2 class="hidden">Toggle play pause</h2>
                 <i class="fal fa-play"></i>
               </section>
-              <input class="player__controls--playback-possition grid__column--6" type="range" min="0">
-              <section class="player__controls--volume grid__column--1" title="Volume">
-                <h2 class="hidden">Volume control slider</h2>
-                <i class="fal fa-volume-off"></i>
-                <input class="player__controls--volume-slider" type="range" min="0">
-              </section>
+              <progress class="player__controls--playback-possition grid__column--6" range="0" min="0">
+                0
+              </progress>
+                <section class="player__controls--volume grid__column--1" title="Volume">
+                  <h2 class="hidden">Volume control slider</h2>
+                  <i class="fal fa-volume-off"></i>
+                  <input class="player__controls--volume-slider" type="range" min="0">
+                </section>
               <section class="player__controls--fullscreen grid__column--1" title="Fullscreen">
                 <h2 class="hidden">Toggle full screen</h2>
                 <i class="fal fa-expand-wide"></i>

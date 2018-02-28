@@ -5,11 +5,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 window.addEventListener("load", function(event) {
+  var supportsHTML5 = !!document.createElement('video').canPlayType;
   fullscreen();
-  playPause();
-  settingsMenu();
-  closedCaption();
-  volume();
+  if(supportsHTML5) {
+    playPause();
+    settingsMenu();
+    closedCaption();
+    volume();
+  }
 
 ////////////////////////////////////////////////////////////////////////////////
 // .remove() Polyfill
@@ -182,6 +185,8 @@ function fullscreenEnabled() {
 // Control Buttons || todo: hide custom controls on iOS
 ////////////////////////////////////////////////////////////////////////////////
 
+//todo: New feature - add icon for video.waiting
+
 // Play/Pause button
 function playPause() {
   var videoControls = document.querySelector(".player__controls");
@@ -272,6 +277,7 @@ function captionHighlight() {
     });
   }
 } // end captionHighlight
+
 // Volume slider
 function volume() {
   var video = document.querySelector(".player");
@@ -314,6 +320,16 @@ function volume() {
     }
   });
 }
+
+// Progress bar
+var progressBar = document.querySelector('.player__controls--playback-possition');
+var progressBarFallback = document.querySelector('.player__controls--playback-possition-fallback');
+var video = document.querySelector(".player");
+
+video.addEventListener('timeupdate', function() {
+   if (!progress.getAttribute('max')) progress.setAttribute('max', video.duration);
+   progressBar.value = video.currentTime;
+});
 
 // settings button
 function settingsMenu() {
