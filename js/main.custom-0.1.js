@@ -160,18 +160,12 @@ function playPause() {
     function() {
       togglePlayPause("play");
       var playPauseToggle = document.querySelector(".fa-play");
-      //
-      if (playPauseToggle.classList == "undefined") {
-        alert("classList" + playPauseToggle.classList);
-      }
-
       playPauseToggle.classList.remove("fa-play");
       playPauseToggle.classList.add("fa-pause");
       play.title = "Click to pause";
     },
     false
   );
-
   video.addEventListener(
     "pause",
     function() {
@@ -202,7 +196,7 @@ function closedCaption() {
 
   closedCaption.addEventListener("click", function() {
     if (closedCaptionText.style.display == "none") {
-      closedCaptionText.style.display = "initial";
+      closedCaptionText.style.display = "block";
       closedCaption.style.color = "yellow";
       captionHighlight();
     } else {
@@ -214,7 +208,6 @@ function closedCaption() {
 
 // Highlights Closed Caption text
 function captionHighlight() {
-  // todo:// add pointer finger mouse icon on highlighted text to indicate jump to in video
   var video = document.querySelector(".player");
   var span = document.querySelectorAll("span");
   video.addEventListener("timeupdate", function() {

@@ -38,9 +38,7 @@
     @extend %centered;
     @include media-query(medium) {
       @include flex(column);
-      &:first-of-type{
-        align-items: center;
-      }
+      
     }
   }
 }

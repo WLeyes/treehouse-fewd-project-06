@@ -536,9 +536,7 @@ ul {
     .grid__row {
       display: flex;
       flex-direction: column;
-      justify-content: center; }
-      .grid__row:first-of-type {
-        align-items: center; } }
+      justify-content: center; } }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////

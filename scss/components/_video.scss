@@ -22,7 +22,7 @@
       background-color: palette(black);
       z-index: 2;
       cursor: pointer;
-      // controls
+      // Buttons
       @include m(settings) {
         @extend %buttons;
         @include m(player-choice) {
