@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // window.load event
 ////////////////////////////////////////////////////////////////////////////////
+
 window.addEventListener("load", function(event) {
   fullscreen();
   playPause();
@@ -158,7 +159,7 @@ function playPause() {
     "play",
     function() {
       togglePlayPause("play");
-      playPauseToggle = document.querySelector(".fa-play");
+      var playPauseToggle = document.querySelector(".fa-play");
       //
       if (playPauseToggle.classList == "undefined") {
         alert("classList" + playPauseToggle.classList);
@@ -175,7 +176,7 @@ function playPause() {
     "pause",
     function() {
       togglePlayPause("play");
-      playPauseToggle = document.querySelector(".fa-pause");
+      var playPauseToggle = document.querySelector(".fa-pause");
       playPauseToggle.classList.remove("fa-pause");
       playPauseToggle.classList.add("fa-play");
       play.title = "Click to play";
@@ -228,7 +229,7 @@ function captionHighlight() {
       }
     }
   });
-  for (i = 0; i < span.length; i += 1) {
+  for (var i = 0; i < span.length; i += 1) {
     span[i].addEventListener("click", function(event) {
       video.currentTime = event.target.getAttribute("data-start");
     });
