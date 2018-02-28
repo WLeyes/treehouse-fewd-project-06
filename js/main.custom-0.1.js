@@ -11,6 +11,10 @@ window.addEventListener("load", function(event) {
   closedCaption();
   volume();
 
+////////////////////////////////////////////////////////////////////////////////
+// .remove() Polyfill
+////////////////////////////////////////////////////////////////////////////////
+
   // Pollyfill for .remove()
   // From:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
   (function(arr) {
@@ -29,6 +33,10 @@ window.addEventListener("load", function(event) {
     });
   })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
 
+////////////////////////////////////////////////////////////////////////////////
+// IE 11 or less workarounds
+////////////////////////////////////////////////////////////////////////////////
+
   // if IE set player height to 100%
   function GetIEVersion() {
     var userAgent = window.navigator.userAgent;
@@ -36,7 +44,7 @@ window.addEventListener("load", function(event) {
 
     if (agentIndex > 0)
       return parseInt(
-        userAgent.substring(Idx + 5, userAgent.indexOf(".", Idx))
+        userAgent.substring(agentIndex + 5, userAgent.indexOf(".", agentIndex))
       );
     else if (!!navigator.userAgent.match(/Trident\/7\./)) return 11;
     else return 0; //It is not IE
@@ -47,6 +55,7 @@ window.addEventListener("load", function(event) {
   var svgIcons = document.querySelector(".svgIcons");
   var headTag = document.getElementsByTagName("head")[0];
 
+// if modern browser (Chrome, Firefox, Opera, MD Edge) then insert script tag to use for Icons
   var script = document.createElement("script");
   script.setAttribute("defer", "defer");
   script.src = "js/vendor/fontawesome/fontawesome-all.min.js";
@@ -62,6 +71,7 @@ window.addEventListener("load", function(event) {
     headTag.appendChild(script);
   }
   // alert(window.navigator.userAgent); // keep for debugging
+  // todo: add iOS support
 }); // end window.load
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -262,7 +272,6 @@ function captionHighlight() {
     });
   }
 } // end captionHighlight
-
 // Volume slider
 function volume() {
   var video = document.querySelector(".player");
@@ -313,9 +322,10 @@ function settingsMenu() {
     ".player__controls--settings--player-choice"
   );
   playerChoiceMenu.style.display = "none";
+
   settings.addEventListener("click", function() {
     if (playerChoiceMenu.style.display == "none") {
-      playerChoiceMenu.style.display = "initial";
+      playerChoiceMenu.style.display = "block";
       playerChoiceMenu.style.color = "yellow";
       settings.style.color = "yellow";
     } else {
@@ -352,7 +362,7 @@ function html5Controls() {
 
 // controlReset
 function controlReset() {
-  // create new settings cog and append to DOM
+  // create new settings cog and appendChild to DOM
   var articleElement = document.getElementsByTagName("article")[0];
   var sectionElementTag = document.createElement("section");
   // sectionElementTag.className = 'player__controls--settings--player-choice';
@@ -365,9 +375,9 @@ function controlReset() {
   var cogIconTag = document.createElement("i");
   cogIconTag.className = "fal fa-cog";
   cogIconTag.style.fontSize = "32px";
-  articleElement.append(sectionElementTag);
-  sectionElementTag.append(buttonElementTag);
-  buttonElementTag.append(cogIconTag);
+  articleElement.appendChild(sectionElementTag);
+  sectionElementTag.appendChild(buttonElementTag);
+  buttonElementTag.appendChild(cogIconTag);
   // cheap way to reset controls
   buttonElementTag.addEventListener("click", function() {
     window.location.reload();
@@ -397,24 +407,24 @@ function mediaElement() {
     var mediaElementJavascriptTag = document.createElement("script");
     videoControls.style.display = "none";
 
-    // create and append to <head> the required mediaElement js script
+    // create and appendChild to <head> the required mediaElement js script
     mediaElementJavascriptTag.type = "text/javascript";
     mediaElementJavascriptTag.src =
       "js/vendor/mediaElement/mediaelement-and-player.min.js";
-    headTag.append(mediaElementJavascriptTag);
+    headTag.appendChild(mediaElementJavascriptTag);
 
-    // create and append to <head> the required mediaElement css script
-    mediaElementCSSTag = document.createElement("link");
+    // create and appendChild to <head> the required mediaElement css script
+    var mediaElementCSSTag = document.createElement("link");
     mediaElementCSSTag.rel = "stylesheet";
     mediaElementCSSTag.href = "css/vendor/mediaElement/mediaelementplayer.css";
-    headTag.append(mediaElementCSSTag);
+    headTag.appendChild(mediaElementCSSTag);
 
-    // create and append to <head>  mediaElement css override script
+    // create and appendChild to <head>  mediaElement css override script
     mediaElementCSSTag = document.createElement("link");
     mediaElementCSSTag.rel = "stylesheet";
     mediaElementCSSTag.href =
       "css/vendor/mediaElement/mediaElementOverride.css";
-    headTag.append(mediaElementCSSTag);
+    headTag.appendChild(mediaElementCSSTag);
 
     // Add required class to the video element
     var player = document.querySelector(".player");
