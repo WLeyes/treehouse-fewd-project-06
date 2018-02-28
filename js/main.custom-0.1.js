@@ -124,14 +124,21 @@ function playPause() {
 video.addEventListener('play', function() {
    togglePlayPause('play');
    playPauseToggle = document.querySelector('.fa-play');
-   playPauseToggle.classList.replaceChild('fa-play', 'fa-pause');
+   //
+   if(playPauseToggle.classList == 'undefined') {
+
+   }
+
+   playPauseToggle.classList.remove('fa-play');
+   playPauseToggle.classList.add('fa-pause');
    play.title = 'Click to pause';
 }, false);
 
 video.addEventListener('pause', function() {
    togglePlayPause('play');
    playPauseToggle = document.querySelector('.fa-pause');
-   playPauseToggle.classList.replaceChild('fa-pause', 'fa-play');
+   playPauseToggle.classList.remove('fa-pause');
+   playPauseToggle.classList.add('fa-play');
    play.title = 'Click to play';
 }, false);
 
@@ -207,8 +214,8 @@ function volume() {
   }
   function unmute(){
     volumeToggle = document.querySelector('.fa-volume-mute');
-    volumeToggle.classList.replace('fa-volume-mute', 'fa-volume-off');
-    // volumeToggle.classList.add('fa-volume-off');
+    volumeToggle.classList.remove('fa-volume-mute');
+    volumeToggle.classList.add('fa-volume-off');
     volumeToggle.style.color = '';
     volume.setAttribute('title', 'Volume');
     video.muted = false;
@@ -330,7 +337,8 @@ function mediaElement(){
     // Add required class to the video element
     const player = document.querySelector('.player');
     // player.classList.add('mejs__player');
-    player.classList.replace('player', 'mejs__player');
+    player.classList.remove('player');
+    player.classList.add('mejs__player');
     const mejsPlayer = document.querySelector('.mejs__player');
     mejsPlayer.style.width  = '100%';
     mejsPlayer.style.height = '100%';
