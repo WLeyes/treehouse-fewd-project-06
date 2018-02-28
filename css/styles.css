@@ -545,6 +545,7 @@ ul {
 */
 .player {
   max-width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -563,6 +564,9 @@ ul {
     background-color: #0b0b0b;
     z-index: 2;
     cursor: pointer; }
+    @media (min-width: 768px) {
+      .player__controls {
+        justify-content: flex-start; } }
     .player__controls--settings--player-choice {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       display: none;

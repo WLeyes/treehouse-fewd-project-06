@@ -28,6 +28,46 @@ window.addEventListener("load", function(event) {
       });
     });
   })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
+
+
+
+  // if IE set player height to 100%
+  function GetIEVersion() {
+    var userAgent = window.navigator.userAgent;
+    var agentIndex = userAgent.indexOf("MSIE");
+
+    if(agentIndex > 0)
+      return parseInt(userAgent.substring(Idx+ 5, userAgent.indexOf(".", Idx)));
+   else if (!!navigator.userAgent.match(/Trident\/7\./))
+        return 11;
+     else
+      return 0; //It is not IE
+    }
+
+
+
+
+    // If IE use web fonts otherwise use SVG's
+  var video = document.querySelector(".player");
+  var svgIcons = document.querySelector(".svgIcons");
+  var headTag = document.getElementsByTagName("head")[0];
+
+  var script = document.createElement('script');
+  script.setAttribute("defer", "defer");
+  script.src = "js/vendor/fontawesome/fontawesome-all.min.js";
+
+  var link = document.createElement('link');
+  link.href = 'css/vendor/fontawesome/css/fontawesome-all.min.css';
+  link.rel = 'stylesheet'
+
+  if (GetIEVersion() > 0){
+    video.style.height = '100%';
+    headTag.appendChild(link);
+  } else {
+    headTag.append(script);
+  }
+
 }); // end window.load
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -38,7 +38,7 @@
     @extend %centered;
     @include media-query(medium) {
       @include flex(column);
-      
+
     }
   }
 }

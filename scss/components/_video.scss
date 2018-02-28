@@ -8,6 +8,7 @@
 // Default styles
 .player{
     max-width: 100%;
+    height: auto;
   @include flex(column);
     @include media-query(medium) {
       border-radius: .8em .8em 0 0;
@@ -18,11 +19,14 @@
       padding: 16px;
       @include flex(row);
       justify-content:space-between;
+      @include media-query(medium) {
+        justify-content:flex-start;
+      }
       opacity: .75;
       background-color: palette(black);
       z-index: 2;
       cursor: pointer;
-      // Buttons
+      // controls
       @include m(settings) {
         @extend %buttons;
         @include m(player-choice) {
@@ -46,6 +50,7 @@
           font-size: initial;
           z-index: 2;
         }
+
       }
       @include m(cc) {
         @extend %buttons;
