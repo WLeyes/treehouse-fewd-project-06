@@ -201,24 +201,27 @@ function playPause() {
     }
   };
 
+function timeUpdate() {
+  var video = document.querySelector(".player");
+  var currentPosition = document.querySelector('.video-current-time');
+  var endPosition = document.querySelector('.video-end-time');
+  var playbackDuration = document.querySelector('.player__controls--playback-possition');
+  playbackDuration.setAttribute('max', video.duration);
+  
+  video.addEventListener("timeupdate", function() {
+    currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
+    endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
+  });
+}
+
   video.addEventListener(
     "play",
     function() {
       togglePlayPause("play");
       var playPauseToggle = document.querySelector(".fa-play");
-      var playbackDuration = document.querySelector('.player__controls--playback-possition');
-      var video = document.querySelector(".player");
-      var currentPosition = document.querySelector('.video-current-time');
-      var endPosition = document.querySelector('.video-end-time');
       playPauseToggle.classList.remove("fa-play");
       playPauseToggle.classList.add("fa-pause");
-      playbackDuration.setAttribute('max', video.duration);
-
-      video.addEventListener("timeupdate", function() {
-        currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
-        endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
-      });
-
+      timeUpdate();
       play.title = "Click to pause";
     },
     false

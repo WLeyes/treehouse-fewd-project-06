@@ -553,6 +553,14 @@ ul {
   @media (min-width: 768px) {
     .player {
       border-radius: .8em .8em 0 0; } }
+  .player__playback-position--current {
+    cursor: default; }
+    .player__playback-position--current:hover {
+      color: #37FF8B; }
+  .player__playback-position--end {
+    cursor: default; }
+    .player__playback-position--end:hover {
+      color: #37FF8B; }
   .player__controls {
     z-index: 2147483648;
     position: relative;

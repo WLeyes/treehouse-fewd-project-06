@@ -16,9 +16,17 @@
     @include e(playback-position) {
       @include m(current){
         @extend %buttons;
+        cursor: default;
+        &:hover{
+          color: $color--primary;
+        }
       }
       @include m(end){
         @extend %buttons;
+        cursor: default;
+        &:hover{
+          color: $color--primary;
+        }
       }
     }
     @include e(controls) {
