@@ -221,18 +221,9 @@ function playPause() {
     "timeupdate",
     function() {
       progressBar();
-      // timeUpdate();
     },
     false
   );
-
-  function timeUpdate() {
-    // var video = document.querySelector(".player");
-    // var currentPosition = document.querySelector('.video-current-time');
-    // var endPosition = document.querySelector('.video-end-time');
-    // var playbackDuration = document.querySelector('.player__controls--playback-possition');
-    // playbackDuration.setAttribute('max', '100');
-  }
 
   video.addEventListener(
     "play",
@@ -278,6 +269,7 @@ function closedCaption() {
       closedCaptionText.style.display = "block";
       closedCaption.style.color = "yellow";
       captionHighlight();
+      progressBar();
     } else {
       closedCaptionText.style.display = "none";
       closedCaption.style.color = "";
