@@ -11,9 +11,9 @@ window.addEventListener("load", function(event) {
   closedCaption();
   volume();
 
-////////////////////////////////////////////////////////////////////////////////
-// .remove() Polyfill
-////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
+  // .remove() Polyfill
+  ////////////////////////////////////////////////////////////////////////////////
 
   // Pollyfill for .remove()
   // From:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
@@ -33,9 +33,9 @@ window.addEventListener("load", function(event) {
     });
   })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
 
-////////////////////////////////////////////////////////////////////////////////
-// IE 11 or less workarounds
-////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
+  // IE 11 or less workarounds
+  ////////////////////////////////////////////////////////////////////////////////
 
   // if IE set player height to 100%
   function GetIEVersion() {
@@ -55,7 +55,7 @@ window.addEventListener("load", function(event) {
   var svgIcons = document.querySelector(".svgIcons");
   var headTag = document.getElementsByTagName("head")[0];
 
-// if modern browser (Chrome, Firefox, Opera, MD Edge) then insert script tag to use for Icons
+  // if modern browser (Chrome, Firefox, Opera, MD Edge) then insert script tag to use for Icons
   var script = document.createElement("script");
   script.setAttribute("defer", "defer");
   script.src = "js/vendor/fontawesome/fontawesome-all.min.js";
@@ -201,33 +201,38 @@ function playPause() {
     }
   };
 
-// on timeupdate, adjust current play position and and time remaining
-function progressBar() {
-  var currentPosition = document.querySelector('.video-current-time');
-  var endPosition = document.querySelector('.video-end-time');
-  var progressBar = document.querySelector('.player__controls--playback-possition');
-  var percentage = Math.floor((100 / video.duration) * video.currentTime);
-  progressBar.value = percentage;
-  if(video.duration > 0){
-    currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
-    endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
+  // on timeupdate, adjust current play position and and time remaining
+  function progressBar() {
+    var currentPosition = document.querySelector(".video-current-time");
+    var endPosition = document.querySelector(".video-end-time");
+    var progressBar = document.querySelector(
+      ".player__controls--playback-possition"
+    );
+    var percentage = Math.floor(100 / video.duration * video.currentTime);
+    progressBar.value = percentage;
+    if (video.duration > 0) {
+      currentPosition.innerHTML = "+" + (Math.floor(video.currentTime) + 1);
+      endPosition.innerHTML =
+        "-" + (Math.floor(video.duration) - Math.floor(video.currentTime));
+    }
   }
-}
 
-video.addEventListener('timeupdate', function() {
-  progressBar();
-  // timeUpdate();
-},false);
+  video.addEventListener(
+    "timeupdate",
+    function() {
+      progressBar();
+      // timeUpdate();
+    },
+    false
+  );
 
-
-function timeUpdate() {
-  // var video = document.querySelector(".player");
-  // var currentPosition = document.querySelector('.video-current-time');
-  // var endPosition = document.querySelector('.video-end-time');
-  // var playbackDuration = document.querySelector('.player__controls--playback-possition');
-  // playbackDuration.setAttribute('max', '100');
-}
-
+  function timeUpdate() {
+    // var video = document.querySelector(".player");
+    // var currentPosition = document.querySelector('.video-current-time');
+    // var endPosition = document.querySelector('.video-end-time');
+    // var playbackDuration = document.querySelector('.player__controls--playback-possition');
+    // playbackDuration.setAttribute('max', '100');
+  }
 
   video.addEventListener(
     "play",
@@ -291,12 +296,12 @@ function captionHighlight() {
         video.currentTime < span[_i].getAttribute("data-end")
       ) {
         span[_i].style.backgroundColor = "yellow";
-        span[_i].classList.add('transition');
-        span[_i].style.fontSize ='20px';
+        span[_i].classList.add("transition");
+        span[_i].style.fontSize = "20px";
       } else {
         span[_i].style.backgroundColor = "";
-        span[_i].style.fontSize ='';
-        span[_i].classList.remove('transition');
+        span[_i].style.fontSize = "";
+        span[_i].classList.remove("transition");
       }
     }
   });
@@ -352,9 +357,9 @@ function volume() {
 
 // Progress bar
 var video = document.querySelector(".player");
-var progressBar = document.querySelector('.player__controls--playback-possition');
-
-
+var progressBar = document.querySelector(
+  ".player__controls--playback-possition"
+);
 
 // settings button
 function settingsMenu() {
