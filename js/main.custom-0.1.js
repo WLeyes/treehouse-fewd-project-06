@@ -207,7 +207,10 @@ function timeUpdate() {
   var endPosition = document.querySelector('.video-end-time');
   var playbackDuration = document.querySelector('.player__controls--playback-possition');
   playbackDuration.setAttribute('max', video.duration);
-  
+
+  var progressBar = document.querySelector('.player__controls--playback-possition');
+  var percentage = Math.floor((100 / video.duration) * video.currentTime);
+
   video.addEventListener("timeupdate", function() {
     currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
     endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
