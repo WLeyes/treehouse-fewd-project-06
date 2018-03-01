@@ -47,6 +47,7 @@
         @extend %buttons;
         @include m(player-choice) {
           font-family: $font-family--secondary;
+          font-size: 18px;
           display: none;
           position: absolute;
           top: em(-125px);
@@ -103,8 +104,6 @@
     }
 }
 
-
-
 // Settings when Fullscreen
 :-webkit-full-screen {
   .player, .player__controls, .mejs__player {
@@ -128,10 +127,6 @@
     bottom: 0;
     background-color: black;
     opacity: 0;
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -ms-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
     &:hover{
       zoom: 1;

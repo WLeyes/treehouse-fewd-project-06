@@ -208,22 +208,24 @@ function progressBar() {
   var progressBar = document.querySelector('.player__controls--playback-possition');
   var percentage = Math.floor((100 / video.duration) * video.currentTime);
   progressBar.value = percentage;
-  currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
-  endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
+  if(video.duration > 0){
+    currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
+    endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
+  }
 }
 
 video.addEventListener('timeupdate', function() {
   progressBar();
-  timeUpdate();
+  // timeUpdate();
 },false);
 
 
 function timeUpdate() {
-  var video = document.querySelector(".player");
-  var currentPosition = document.querySelector('.video-current-time');
-  var endPosition = document.querySelector('.video-end-time');
-  var playbackDuration = document.querySelector('.player__controls--playback-possition');
-  playbackDuration.setAttribute('max', video.duration);
+  // var video = document.querySelector(".player");
+  // var currentPosition = document.querySelector('.video-current-time');
+  // var endPosition = document.querySelector('.video-end-time');
+  // var playbackDuration = document.querySelector('.player__controls--playback-possition');
+  // playbackDuration.setAttribute('max', '100');
 }
 
 
@@ -289,8 +291,12 @@ function captionHighlight() {
         video.currentTime < span[_i].getAttribute("data-end")
       ) {
         span[_i].style.backgroundColor = "yellow";
+        span[_i].classList.add('transition');
+        span[_i].style.fontSize ='20px';
       } else {
         span[_i].style.backgroundColor = "";
+        span[_i].style.fontSize ='';
+        span[_i].classList.remove('transition');
       }
     }
   });

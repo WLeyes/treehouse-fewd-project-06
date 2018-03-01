@@ -31,3 +31,8 @@
 @function extender($extend) {
   @return '%#{$extend}';
 }
+
+.transition {
+  transition: background 1s ease-in-out;
+  transition: font-size 1s ease-in-out;
+}

@@ -29,7 +29,7 @@
 
         <article class="player__container grid__row">
           <h2 class="hidden">Video Player</h2>
-          <video controls class="player grid__column--12" poster="img/Team-Treehouse-Review.jpg" preload="metadata">
+          <video controls class="player grid__column--12" poster="img/Team-Treehouse-Review.jpg">
             <source src="video/video.mp4"  type="video/mp4">
             <source src="video/video.ogg"  type="video/ogg">
             <!-- Flash fallback -->
@@ -71,7 +71,7 @@
                 <span class="video-current-time"></span>
               </section>
 
-              <progress class="player__controls--playback-possition grid__column--4" value="0" min="0"></progress>
+              <progress class="player__controls--playback-possition grid__column--4" value="0" min="0" max="100"></progress>
 
               <section class="player__playback-position--end grid__column--1">
                 <h2 class="hidden">Video video-end time</h2>
