@@ -29,7 +29,7 @@
 
         <article class="player__container grid__row">
           <h2 class="hidden">Video Player</h2>
-          <video controls class="player grid__column--12" poster="img/Team-Treehouse-Review.jpg">
+          <video controls class="player grid__column--12" poster="img/Team-Treehouse-Review.jpg" preload="metadata">
             <source src="video/video.mp4"  type="video/mp4">
             <source src="video/video.ogg"  type="video/ogg">
             <!-- Flash fallback -->
@@ -45,6 +45,7 @@
           </video>
           <section class="player__controls grid__row grid__column--12">
             <h2 class="hidden">Video Player Controls</h2>
+
               <section class="player__controls--settings grid__column--1" title="Settings">
                 <h2 class="hidden">Video Player Controls menu</h2>
                 <i class="fal fa-cog fa-spin"></i>
@@ -54,30 +55,45 @@
                   <li><a href="#" class="player-choice--defaultHTML5" title="HTML 5 Controls">Use Default HTML5 Controls</a></li>
                 </ul>
               </section>
+
               <section class="player__controls--cc grid__column--1" data-state="cc-hide" title="Closed Caption">
                 <h2 class="hidden">Toggle closed-captioned text</h2>
                 <i class="fal fa-closed-captioning"></i>
               </section>
+
               <section class="player__controls--play grid__column--1" data-state="play" title="Click to Play">
                 <h2 class="hidden">Toggle play pause</h2>
                 <i class="fal fa-play"></i>
               </section>
-              <progress class="player__controls--playback-possition grid__column--6" range="0" min="0">
-                0
-              </progress>
-                <section class="player__controls--volume grid__column--1" title="Volume">
-                  <h2 class="hidden">Volume control slider</h2>
-                  <i class="fal fa-volume-off"></i>
-                  <input class="player__controls--volume-slider" type="range" min="0">
-                </section>
+
+              <section class="player__playback-position--current grid__column--1">
+                <h2 class="hidden">Video video-current time</h2>
+                <span class="video-current-time"></span>
+              </section>
+
+              <progress class="player__controls--playback-possition grid__column--4" value="0" min="0"></progress>
+
+              <section class="player__playback-position--end grid__column--1">
+                <h2 class="hidden">Video video-end time</h2>
+                <span class="video-end-time"></span>
+              </section>
+
+              <section class="player__controls--volume grid__column--1" title="Volume">
+                <h2 class="hidden">Volume control slider</h2>
+                <i class="fal fa-volume-off"></i>
+                <input class="player__controls--volume-slider" type="range" min="0">
+              </section>
+
               <section class="player__controls--fullscreen grid__column--1" title="Fullscreen">
                 <h2 class="hidden">Toggle full screen</h2>
                 <i class="fal fa-expand-wide"></i>
               </section>
+
               <section class="player__controls--info grid__column--1" title="Help">
                 <h2 class="hidden">Toggle help menu</h2>
                 <i class="fal fa-info-circle"></i>
               </section>
+
           </section>
         </article>
 

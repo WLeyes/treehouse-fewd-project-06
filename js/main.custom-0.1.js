@@ -5,14 +5,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 window.addEventListener("load", function(event) {
-  var supportsHTML5 = !!document.createElement('video').canPlayType;
   fullscreen();
-  if(supportsHTML5) {
-    playPause();
-    settingsMenu();
-    closedCaption();
-    volume();
-  }
+  playPause();
+  settingsMenu();
+  closedCaption();
+  volume();
 
 ////////////////////////////////////////////////////////////////////////////////
 // .remove() Polyfill
@@ -209,8 +206,19 @@ function playPause() {
     function() {
       togglePlayPause("play");
       var playPauseToggle = document.querySelector(".fa-play");
+      var playbackDuration = document.querySelector('.player__controls--playback-possition');
+      var video = document.querySelector(".player");
+      var currentPosition = document.querySelector('.video-current-time');
+      var endPosition = document.querySelector('.video-end-time');
       playPauseToggle.classList.remove("fa-play");
       playPauseToggle.classList.add("fa-pause");
+      playbackDuration.setAttribute('max', video.duration);
+
+      video.addEventListener("timeupdate", function() {
+        currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
+        endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
+      });
+
       play.title = "Click to pause";
     },
     false
@@ -322,14 +330,10 @@ function volume() {
 }
 
 // Progress bar
-var progressBar = document.querySelector('.player__controls--playback-possition');
-var progressBarFallback = document.querySelector('.player__controls--playback-possition-fallback');
 var video = document.querySelector(".player");
+var progressBar = document.querySelector('.player__controls--playback-possition');
 
-video.addEventListener('timeupdate', function() {
-   if (!progress.getAttribute('max')) progress.setAttribute('max', video.duration);
-   progressBar.value = video.currentTime;
-});
+
 
 // settings button
 function settingsMenu() {

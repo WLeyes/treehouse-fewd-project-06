@@ -38,15 +38,16 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100; }
 
-.player__controls--settings, .player__controls--cc, .player__controls--play, .player__controls--volume, .player__controls--fullscreen, .player__controls--info {
+.player__playback-position--current, .player__playback-position--end, .player__controls--settings, .player__controls--cc, .player__controls--play, .player__controls--volume, .player__controls--fullscreen, .player__controls--info {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: transparent;
   border: none;
   align-self: center;
   text-align: center;
   color: #37FF8B; }
-  .player__controls--settings:hover, .player__controls--cc:hover, .player__controls--play:hover, .player__controls--volume:hover, .player__controls--fullscreen:hover, .player__controls--info:hover {
+  .player__playback-position--current:hover, .player__playback-position--end:hover, .player__controls--settings:hover, .player__controls--cc:hover, .player__controls--play:hover, .player__controls--volume:hover, .player__controls--fullscreen:hover, .player__controls--info:hover {
     color: yellow; }
-  .player__controls--settings:active, .player__controls--cc:active, .player__controls--play:active, .player__controls--volume:active, .player__controls--fullscreen:active, .player__controls--info:active {
+  .player__playback-position--current:active, .player__playback-position--end:active, .player__controls--settings:active, .player__controls--cc:active, .player__controls--play:active, .player__controls--volume:active, .player__controls--fullscreen:active, .player__controls--info:active {
     opacity: initial; }
 
 .player__controls--playback-possition, .player__controls--volume-slider {
