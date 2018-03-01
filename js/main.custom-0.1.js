@@ -202,21 +202,30 @@ function playPause() {
   };
 
 // on timeupdate, adjust current play position and and time remaining
+function progressBar() {
+  var currentPosition = document.querySelector('.video-current-time');
+  var endPosition = document.querySelector('.video-end-time');
+  var progressBar = document.querySelector('.player__controls--playback-possition');
+  var percentage = Math.floor((100 / video.duration) * video.currentTime);
+  progressBar.value = percentage;
+  currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
+  endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
+}
+
+video.addEventListener('timeupdate', function() {
+  progressBar();
+  timeUpdate();
+},false);
+
+
 function timeUpdate() {
   var video = document.querySelector(".player");
   var currentPosition = document.querySelector('.video-current-time');
   var endPosition = document.querySelector('.video-end-time');
   var playbackDuration = document.querySelector('.player__controls--playback-possition');
   playbackDuration.setAttribute('max', video.duration);
-
-  var progressBar = document.querySelector('.player__controls--playback-possition');
-  var percentage = Math.floor((100 / video.duration) * video.currentTime);
-
-  video.addEventListener("timeupdate", function() {
-    currentPosition.innerHTML = '+' + (Math.floor(video.currentTime) + 1);
-    endPosition.innerHTML = '-' + (Math.floor(video.duration) - (Math.floor(video.currentTime)));
-  });
 }
+
 
   video.addEventListener(
     "play",
@@ -225,7 +234,6 @@ function timeUpdate() {
       var playPauseToggle = document.querySelector(".fa-play");
       playPauseToggle.classList.remove("fa-play");
       playPauseToggle.classList.add("fa-pause");
-      timeUpdate();
       play.title = "Click to pause";
     },
     false
