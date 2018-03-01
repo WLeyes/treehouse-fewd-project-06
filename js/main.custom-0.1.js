@@ -201,6 +201,7 @@ function playPause() {
     }
   };
 
+// on timeupdate, adjust current play position and and time remaining
 function timeUpdate() {
   var video = document.querySelector(".player");
   var currentPosition = document.querySelector('.video-current-time');
