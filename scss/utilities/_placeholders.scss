@@ -77,7 +77,6 @@
   font-family: $font-family--primary;
   background-color: transparent; // test
   border: none;
-  align-self: center;
   text-align: center;
   color: $color--primary;
   &:hover{
@@ -102,12 +101,19 @@
     width: 32px;
     height: 32px;
     background: $color--primary;
-    cursor: pointer; /* Cursor on hover */
+    cursor: pointer;
   }
-  &::-moz-range-thumb {
-    width: 32px; /* Set a specific slider handle width */
-    height: 32px; /* Slider handle height */
+  &::-ms-fill {
+    appearance: none;
+    width: 32px;
+    height: 32px;
     background: $color--primary;
-    cursor: pointer; /* Cursor on hover */
+  }
+
+  &::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    background: $color--primary;
+    cursor: pointer;
   }
 }

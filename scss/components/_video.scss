@@ -24,6 +24,9 @@
       @include m(end){
         @extend %buttons;
         cursor: default;
+        p {
+          margin: 0;
+        }
         &:hover{
           color: $color--primary;
         }

@@ -46,7 +46,6 @@
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: transparent;
   border: none;
-  align-self: center;
   text-align: center;
   color: #37FF8B; }
   .player__playback-position--current:hover, .player__playback-position--end:hover, .player__controls--settings:hover, .player__controls--cc:hover, .player__controls--play:hover, .player__controls--volume:hover, .player__controls--fullscreen:hover, .player__controls--info:hover {
@@ -68,16 +67,17 @@
     width: 32px;
     height: 32px;
     background: #37FF8B;
-    cursor: pointer;
-    /* Cursor on hover */ }
+    cursor: pointer; }
+  .player__controls--playback-possition::-ms-fill, .player__controls--volume-slider::-ms-fill {
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background: #37FF8B; }
   .player__controls--playback-possition::-moz-range-thumb, .player__controls--volume-slider::-moz-range-thumb {
     width: 32px;
-    /* Set a specific slider handle width */
     height: 32px;
-    /* Slider handle height */
     background: #37FF8B;
-    cursor: pointer;
-    /* Cursor on hover */ }
+    cursor: pointer; }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -1229,6 +1229,8 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
       color: #37FF8B; }
   .player__playback-position--end {
     cursor: default; }
+    .player__playback-position--end p {
+      margin: 0; }
     .player__playback-position--end:hover {
       color: #37FF8B; }
   .player__controls {

@@ -201,12 +201,17 @@ function playPause() {
     }
   };
 
+  video.addEventListener(
+    "timeupdate",
+    function() {
+      progressBar();
+    }, false);
   // on timeupdate, adjust current play position and and time remaining
   function progressBar() {
     var currentPosition = document.querySelector(".video-current-time");
-    // currentPosition.removeEventListener("click", function()), false;
+    // currentPosition.removeEventListener("click", func() =>  false);
     var endPosition = document.querySelector(".video-end-time");
-    // endPosition.removeEventListener("click", () function(), false);
+    // endPosition.removeEventListener("click", () =>  false);
     var progressBar = document.querySelector(
       ".player__controls--playback-possition"
     );
@@ -220,18 +225,6 @@ function playPause() {
   }
 
   video.addEventListener(
-    "timeupdate",
-    function() {
-      if(togglePlayPause()) {
-        if (type == "play") {
-          progressBar();
-        }
-      }
-    },
-    false
-  );
-
-  video.addEventListener(
     "play",
     function() {
       togglePlayPause("play");
@@ -242,6 +235,7 @@ function playPause() {
     },
     false
   );
+
   video.addEventListener(
     "pause",
     function() {
@@ -275,7 +269,6 @@ function closedCaption() {
       closedCaptionText.style.display = "block";
       closedCaption.style.color = "yellow";
       captionHighlight();
-      // progressBar();
     } else {
       closedCaptionText.style.display = "none";
       closedCaption.style.color = "";
@@ -286,7 +279,7 @@ function closedCaption() {
 // Highlights Closed Caption text
 function captionHighlight() {
   var video = document.querySelector(".player");
-  var span = document.querySelectorAll("span");
+  var span = document.querySelectorAll(".player__closed-caption span");
   video.addEventListener("timeupdate", function() {
     for (var _i = 0; _i < span.length; _i += 1) {
       span[_i].style.cursor = "text";
@@ -304,6 +297,7 @@ function captionHighlight() {
       }
     }
   });
+  // Click event for body text - allows jumping to that part of the video
   for (var i = 0; i < span.length; i += 1) {
     span[i].addEventListener("click", function(event) {
       video.currentTime = event.target.getAttribute("data-start");
