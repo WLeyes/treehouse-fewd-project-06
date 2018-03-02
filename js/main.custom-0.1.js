@@ -315,38 +315,53 @@ function volume() {
   var video = document.querySelector(".player");
   var volume = document.querySelector(".player__controls--volume");
   var volumeSlider = document.querySelector(".player__controls--volume-slider");
-
   // Initial display state
   volumeSlider.style.display = "none";
-
   // show volume bar on mouseover
   volume.addEventListener("mouseover", function() {
     volumeSlider.style.display = "block";
   });
-
   // hide volume bar on mouseout
   volume.addEventListener("mouseout", function() {
     volumeSlider.style.display = "none";
   });
 
+
+
+
+// get currentVolume
+// if current currentVolume == 0 mute and change to mute icon set
+    // and if dble click to set volume at default .4 (might convert to percentage?)
+
+// if changeVolume is < currentVolume && changeVolume is > 0 decrease volume by .1
+
+// if changeVolume is > currentVolume increase volume
+  // if currentVolume == 0 && changeVolume is > currentVolume increase volume and change icon to default icon
+
+
+// todo: fix !!!!! (as per thoughts above) currently not muting at 0
+// and if volume greater then 0 and I double click I can reverse slider (mutes at max volume)
+
   // update Volume
   volumeSlider.addEventListener("change", function(event){
     if(volume.getAttribute("title") == "Volume"){
       var volumeToggle = document.querySelector(".fa-volume-off");
-      volumeToggle.classList.remove("fa-volume-off");
-      volumeToggle.classList.add("fa-volume-mute");
-      volumeToggle.style.color = "red";
-      volume.setAttribute("title", "Double-click to unmute");
-      video.muted = !video.muted;
-    } else {
-      var volumeToggle = document.querySelector(".fa-volume-mute");
       volumeToggle.classList.remove("fa-volume-mute");
       volumeToggle.classList.add("fa-volume-off");
       volumeToggle.style.color = "";
       volume.setAttribute("title", "Volume");
       video.muted = false;
+    } else {
+      var volumeToggle = document.querySelector(".fa-volume-mute");
+      volumeToggle.classList.remove("fa-volume-off");
+      volumeToggle.classList.add("fa-volume-mute");
+      volumeToggle.style.color = "red";
+      volume.setAttribute("title", "Double-click to unmute");
+      video.muted = !video.muted;
     }
   });
+
+// currently functioning correctly
 
   // toogle mute if double clicked
   volume.addEventListener("dblclick", function() {
