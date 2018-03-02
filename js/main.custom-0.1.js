@@ -305,78 +305,72 @@ function captionHighlight() {
   }
 } // end captionHighlight
 
+
+
+////////////////////////////////////////////////////////////////////////////////
 // Volume slider
+////////////////////////////////////////////////////////////////////////////////
+
 function volume() {
   var video = document.querySelector(".player");
   var volume = document.querySelector(".player__controls--volume");
-
   var volumeSlider = document.querySelector(".player__controls--volume-slider");
+
+  // Initial display state
   volumeSlider.style.display = "none";
 
-  // set initial volume value;
-
-  var volumeOff = document.querySelector(".fa-volume-off");
-  var volumeMute = document.querySelector(".fa-volume-mute"); // left off here Reworking toggle in to 2 seperate vars
-                                                             //  volume slider currently works, broke double-click,
-
-  // Volume
+  // show volume bar on mouseover
   volume.addEventListener("mouseover", function() {
     volumeSlider.style.display = "block";
   });
+
+  // hide volume bar on mouseout
   volume.addEventListener("mouseout", function() {
     volumeSlider.style.display = "none";
   });
 
   // update Volume
   volumeSlider.addEventListener("change", function(event){
-    video.volume = event.target.value;
-    volumeSlider.value = event.target.value;
-  });
-
-  video.addEventListener('volumechange', function(event){
-    if(video.volume == 0){
-      volumeToggle = document.querySelector(".fa-volume-off");
+    if(volume.getAttribute("title") == "Volume"){
+      var volumeToggle = document.querySelector(".fa-volume-off");
       volumeToggle.classList.remove("fa-volume-off");
       volumeToggle.classList.add("fa-volume-mute");
       volumeToggle.style.color = "red";
       volume.setAttribute("title", "Double-click to unmute");
-      mute();
+      video.muted = !video.muted;
     } else {
-      volumeToggle = document.querySelector(".fa-volume-mute");
+      var volumeToggle = document.querySelector(".fa-volume-mute");
       volumeToggle.classList.remove("fa-volume-mute");
       volumeToggle.classList.add("fa-volume-off");
       volumeToggle.style.color = "";
       volume.setAttribute("title", "Volume");
-      unmute();
+      video.muted = false;
     }
   });
 
-  // Mute / un-mute
-  function mute() {
-    video.muted = !video.muted;
-  }
-  function unmute() {
-    video.muted = false;
-  }
-
+  // toogle mute if double clicked
   volume.addEventListener("dblclick", function() {
-    if(video.volume == 0){
-      volumeToggle = document.querySelector(".fa-volume-off");
+    if(volume.getAttribute("title") == "Volume"){
+      var volumeToggle = document.querySelector(".fa-volume-off");
       volumeToggle.classList.remove("fa-volume-off");
       volumeToggle.classList.add("fa-volume-mute");
       volumeToggle.style.color = "red";
       volume.setAttribute("title", "Double-click to unmute");
-      mute();
+      video.muted = !video.muted;
     } else {
-      volumeToggle = document.querySelector(".fa-volume-mute");
+      var volumeToggle = document.querySelector(".fa-volume-mute");
       volumeToggle.classList.remove("fa-volume-mute");
       volumeToggle.classList.add("fa-volume-off");
       volumeToggle.style.color = "";
       volume.setAttribute("title", "Volume");
-      unmute();
+      video.muted = false;
     }
   });
 }
+
+
+
+
 
 // Progress bar
 var video = document.querySelector(".player");
