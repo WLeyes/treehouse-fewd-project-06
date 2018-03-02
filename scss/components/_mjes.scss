@@ -1,0 +1,20 @@
+.mejs{
+  @include e(container) {
+    border-radius: 0;
+  }
+  @include e(controls) {
+    background-image: url(./img/vendor/mediaElement/mejs.svg);
+  }
+  @include e(time-loaded) {
+    background-color: $color--secondary;
+  }
+  @include e(currenttime) {
+    color: $color--primary;
+  }
+  @include e(time-current) {
+    background-color: $color--primary;
+  }
+  @include e(duration) {
+    color: red;
+  }
+}

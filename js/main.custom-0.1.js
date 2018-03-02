@@ -204,7 +204,9 @@ function playPause() {
   // on timeupdate, adjust current play position and and time remaining
   function progressBar() {
     var currentPosition = document.querySelector(".video-current-time");
+    // currentPosition.removeEventListener("click", function()), false;
     var endPosition = document.querySelector(".video-end-time");
+    // endPosition.removeEventListener("click", () function(), false);
     var progressBar = document.querySelector(
       ".player__controls--playback-possition"
     );
@@ -220,7 +222,11 @@ function playPause() {
   video.addEventListener(
     "timeupdate",
     function() {
-      progressBar();
+      if(togglePlayPause()) {
+        if (type == "play") {
+          progressBar();
+        }
+      }
     },
     false
   );
@@ -269,7 +275,7 @@ function closedCaption() {
       closedCaptionText.style.display = "block";
       closedCaption.style.color = "yellow";
       captionHighlight();
-      progressBar();
+      // progressBar();
     } else {
       closedCaptionText.style.display = "none";
       closedCaption.style.color = "";
@@ -283,6 +289,7 @@ function captionHighlight() {
   var span = document.querySelectorAll("span");
   video.addEventListener("timeupdate", function() {
     for (var _i = 0; _i < span.length; _i += 1) {
+      span[_i].style.cursor = "text";
       if (
         video.currentTime > span[_i].getAttribute("data-start") &&
         video.currentTime < span[_i].getAttribute("data-end")
@@ -442,40 +449,25 @@ function mediaElement() {
 
   mediaElementSelected.addEventListener("click", function() {
     var headTag = document.getElementsByTagName("head")[0];
-    var mediaElementJavascriptTag = document.createElement("script");
+    var bodyTag = document.getElementsByTagName("body")[0];
+    // Hide my custom controls
     videoControls.style.display = "none";
 
     // create and appendChild to <head> the required mediaElement js script
+    var mediaElementJavascriptTag = document.createElement("script");
     mediaElementJavascriptTag.type = "text/javascript";
     mediaElementJavascriptTag.src =
       "js/vendor/mediaElement/mediaelement-and-player.min.js";
     headTag.appendChild(mediaElementJavascriptTag);
 
-    // create and appendChild to <head> the required mediaElement css script
-    var mediaElementCSSTag = document.createElement("link");
-    mediaElementCSSTag.rel = "stylesheet";
-    mediaElementCSSTag.href = "css/vendor/mediaElement/mediaelementplayer.css";
-    headTag.appendChild(mediaElementCSSTag);
-
-    // create and appendChild to <head>  mediaElement css override script
-    mediaElementCSSTag = document.createElement("link");
-    mediaElementCSSTag.rel = "stylesheet";
-    mediaElementCSSTag.href =
-      "css/vendor/mediaElement/mediaElementOverride.css";
-    headTag.appendChild(mediaElementCSSTag);
-
-    // Add required class to the video element
-    var player = document.querySelector(".player");
-    // player.classList.add('mejs__player');
-    player.classList.remove("player");
-    player.classList.add("mejs__player");
-    var mejsPlayer = document.querySelector(".mejs__player");
-    mejsPlayer.style.width = "100%";
-    mejsPlayer.style.height = "100%";
+    // creade and append to <body> my mediaElement js script
+    var myMediaElementJavascriptTag = document.createElement("script");
+    myMediaElementJavascriptTag.type = "text/javascript";
+    myMediaElementJavascriptTag.src =
+      "js/vendor/mediaElement/myMediaElementScript.js";
+    bodyTag.appendChild(myMediaElementJavascriptTag);
 
     // Display body closedCaptionText
-    var closedCaptionText = document.querySelector(".player__closed-caption");
-    closedCaptionText.style.display = "initial";
 
     // Reset Controls
     controlReset();
