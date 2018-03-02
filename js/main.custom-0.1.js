@@ -317,6 +317,7 @@ function volume() {
 
   var volumeOff = document.querySelector(".fa-volume-off");
   var volumeMute = document.querySelector(".fa-volume-mute"); // left off here Reworking toggle in to 2 seperate vars
+                                                             //  volume slider currently works, broke double-click,
 
   // Volume
   volume.addEventListener("mouseover", function() {
