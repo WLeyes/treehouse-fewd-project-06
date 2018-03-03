@@ -22,7 +22,7 @@ window.addEventListener("load", function(event) {
       if (item.hasOwnProperty("remove")) {
         return;
       }
-      Object.defineProperty(item, "remove", {
+      Object.defineProperty(item, "remove", { 
         configurable: true,
         enumerable: true,
         writable: true,
