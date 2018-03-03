@@ -315,6 +315,7 @@ function volume() {
   var video = document.querySelector(".player");
   var volume = document.querySelector(".player__controls--volume");
   var volumeSlider = document.querySelector(".player__controls--volume-slider");
+  var playing = false;
   // Initial display state
   volumeSlider.style.display = "none";
   // show volume bar on mouseover

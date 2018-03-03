@@ -84,13 +84,20 @@
       @include m(volume) {
         @extend %buttons;
         @include flex(row);
+        display: inline-block;
+        width: 20px;
+        height: 150px;
+        padding: 0;
+        & input {
+
+        }
       }
       @include m(volume-slider) {
         @extend %sliders;
-        position: absolute;
-        top: em(-25px);
-        z-index: 1;
-        border: 3px solid palette(black);
+        width: 150px;
+        height: 20px;
+        margin: 0;
+        transform-origin: 75px 75px;
         transform: rotate(-90deg);
       }
       @include m(fullscreen) {
