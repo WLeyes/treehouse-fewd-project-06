@@ -373,6 +373,7 @@ function volume() {
       volumeToggle.style.color = "red";
       volume.setAttribute("title", "Double-click to unmute");
       video.muted = !video.muted;
+      volumeSlider.disabled = true;
     } else {
       var volumeToggle = document.querySelector(".fa-volume-mute");
       volumeToggle.classList.remove("fa-volume-mute");
@@ -380,6 +381,7 @@ function volume() {
       volumeToggle.style.color = "";
       volume.setAttribute("title", "Volume");
       video.muted = false;
+      volumeSlider.disabled = false;
     }
   });
 }
@@ -407,6 +409,7 @@ function settingsMenu() {
       playerChoiceMenu.style.display = "block";
       playerChoiceMenu.style.color = "yellow";
       settings.style.color = "yellow";
+      settings.style.transform = "75px 75px" // trying to fix for edge
     } else {
       playerChoiceMenu.style.display = "none";
       playerChoiceMenu.style.color = "";
