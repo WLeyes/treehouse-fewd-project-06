@@ -14,7 +14,7 @@ window.addEventListener("load", function(event) {
   // browser test
   var doc = document.documentElement;
   doc.setAttribute('data-useragent', navigator.userAgent);
-  alert(doc.getAttribute('data-useragent'));
+  // alert(doc.getAttribute('data-useragent'));
 
 
   ////////////////////////////////////////////////////////////////////////////////

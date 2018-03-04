@@ -66,16 +66,18 @@
   -webkit-transition: .2s;
   transition: opacity .2s;
   z-index: 2147483650;
-  max-height: 32px; }
+  height: 32px;
+  padding: 0 5px;
+  min-width: 10px; }
   .player__controls--playback-possition::-webkit-progress-value, .player__controls--volume-slider::-webkit-progress-value {
     -webkit-appearance: none;
     appearance: none;
-    max-height: 32px;
+    max-height: 100%;
     background-color: #37FF8B;
     cursor: pointer; }
   .player__controls--playback-possition::-ms-fill, .player__controls--volume-slider::-ms-fill {
     appearance: none;
-    height: 32px;
+    max-height: 32px;
     background: #37FF8B; }
   .player__controls--playback-possition::-webkit-slider-thumb, .player__controls--volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -84,6 +86,8 @@
     height: 32px;
     background: yellow;
     border: 3px solid #0b0b0b;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
     cursor: pointer; }
   .player__controls--playback-possition::-moz-range-thumb, .player__controls--volume-slider::-moz-range-thumb {
     height: 32px;
@@ -1266,6 +1270,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
       position: absolute;
       top: -7.8125em;
       left: 0.3125em;
+      padding: 5px;
       text-align: left;
       background-color: #0b0b0b;
       border-radius: 0.4em;
