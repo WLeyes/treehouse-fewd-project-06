@@ -1285,8 +1285,10 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
       z-index: 1;
       border: 3px solid #0b0b0b;
       border-left: 0;
-      transform: rotate(-90deg);
-      transform-origin: 32px 75px; }
+      transform: rotate(-90deg); }
+      .player__controls--volume-slider[data-useragent*='Trident'] {
+        transform-origin: 32px 75px;
+        background-color: tomato; }
     @media (min-width: 768px) {
       .player__controls {
         border-radius: 0 0 .4em .4em;

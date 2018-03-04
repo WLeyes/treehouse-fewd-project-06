@@ -11,6 +11,12 @@ window.addEventListener("load", function(event) {
   closedCaption();
   volume();
 
+  // browser test
+  var doc = document.documentElement;
+  doc.setAttribute('data-useragent', navigator.userAgent);
+  alert(doc.getAttribute('data-useragent'));
+
+
   ////////////////////////////////////////////////////////////////////////////////
   // .remove() Polyfill
   ////////////////////////////////////////////////////////////////////////////////
@@ -316,6 +322,7 @@ function volume() {
   var volume = document.querySelector(".player__controls--volume");
   var volumeSlider = document.querySelector(".player__controls--volume-slider");
   var playing = false;
+
   // Initial display state
   volumeSlider.style.display = "none";
   // show volume bar on mouseover
@@ -351,6 +358,7 @@ function volume() {
       volumeToggle.classList.add("fa-volume-off");
       volumeToggle.style.color = "";
       volume.setAttribute("title", "Volume");
+      video.volume = this.value / 100;
       video.muted = false;
     } else {
       var volumeToggle = document.querySelector(".fa-volume-mute");

@@ -95,7 +95,10 @@
         border: 3px solid palette(black);
         border-left: 0;
         transform: rotate(-90deg);
-        transform-origin: 32px 75px; // needed for IE but messes uo Edge
+        &[data-useragent*='Trident']{
+          transform-origin: 32px 75px; // needed for IE but messes uo Edge
+          background-color: tomato;
+        }
       }
       @include m(fullscreen) {
         @extend %buttons;
