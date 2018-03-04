@@ -95,10 +95,7 @@
         border: 3px solid palette(black);
         border-left: 0;
         transform: rotate(-90deg);
-        &[data-useragent*='Trident']{
-          transform-origin: 32px 75px; // needed for IE but messes uo Edge
-          background-color: tomato;
-        }
+        -ms-transform-origin: 32px 75px; // needed for IE but messes uo Edge
       }
       @include m(fullscreen) {
         @extend %buttons;
@@ -113,7 +110,10 @@
       }
     }
 }
-
+_:-ms-lang(x), .ie11 {
+  property:value\11;
+  transform-origin: 32px 75px;
+}
 // Settings when Fullscreen
 :-webkit-full-screen {
   .player, .player__controls, .mejs__player {

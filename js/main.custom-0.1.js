@@ -463,8 +463,9 @@ function controlReset() {
   buttonElementTag.type = "button";
   buttonElementTag.name = "settings";
   var cogIconTag = document.createElement("i");
-  cogIconTag.className = "fal fa-cog";
+  cogIconTag.className = "fal fa-cog data-fa-transform='rotate-360' ";
   cogIconTag.style.fontSize = "32px";
+  cogIconTag.style.display = "block"
   articleElement.appendChild(sectionElementTag);
   sectionElementTag.appendChild(buttonElementTag);
   buttonElementTag.appendChild(cogIconTag);

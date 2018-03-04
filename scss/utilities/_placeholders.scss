@@ -78,12 +78,18 @@
   background-color: transparent; // test
   border: none;
   text-align: center;
+
   color: $color--primary;
   &:hover{
     color: $color--secondary;
   }
   &:active {
     opacity: initial;
+  }
+  .fa-spin {
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
   }
 }
 
@@ -96,11 +102,12 @@
   -webkit-transition: .2s;
   transition: opacity .2s;
   z-index: 2147483650;
-  height: 32px;
+  max-height: 32px;
+  // max-width: 32px;
   &::-webkit-progress-value {
     -webkit-appearance: none;
     appearance: none;
-    height: 32px;
+    max-height: 32px;
     background-color: $color--primary;
     cursor: pointer;
   }
