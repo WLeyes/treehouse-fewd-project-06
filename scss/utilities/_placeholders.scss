@@ -105,8 +105,27 @@
   height: 32px;
   padding: 0 5px;
   min-width: 10px;
+  &::-moz-progress-bar {
+    appearance: none;
+    background: palette(black);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    z-index: 2147483650;
+    height: 32px;
+    padding: 0 5px;
+    min-width: 10px;
+  }
   &::-webkit-progress-value {
     -webkit-appearance: none;
+    appearance: none;
+    max-height: 100%;
+    background-color: $color--primary;
+    cursor: pointer;
+  }
+  &::-moz-range-progress {
+    -moz-appearance: none;
     appearance: none;
     max-height: 100%;
     background-color: $color--primary;
@@ -129,7 +148,10 @@
     cursor: pointer;
   }
   &::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none;
     height: 32px;
+    width: 16px;
     background: $color--secondary;
     border: 3px solid palette(black);
   }
