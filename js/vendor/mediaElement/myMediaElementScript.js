@@ -1,5 +1,6 @@
 'use strict';
 
+$(document).ready(function() {
   captionHighlight();
   var closedCaptionText = $(".player__closed-caption");
   $(closedCaptionText).css("display", "block");
@@ -10,3 +11,4 @@
     defaultVideoWidth: '100%',
     defaultVideoHeight: '100%'
   });
+});
